@@ -7,8 +7,27 @@
 // const res = prompt("Input your name");
 // const str = ["Peter", "John", "Igor", "Sasha"];
 
+//  function login(str, res){
+//     if (!res){
+//         console.log('Відміна');
+//         return;
+//     }
+
+//    return str.includes(res) ? "Доступ дозволено" : 'Доступу немає';
+
+//  }
+
+//  console.log(login(str, res));
+
 //TODO:==============================
 // Напишіть функцію min(a,b), яка повертає менше із чисел a і b.
+
+// function min() {
+//   console.log(arguments);
+//   return Math.min(...arguments);
+// }
+
+// console.log(min(55, 7, 5, 778));
 
 //TODO:==============================
 // Що виведе наступний код?
