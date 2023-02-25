@@ -12,6 +12,22 @@
 // виведіть в консоль повідомлення "Ви не ввели імʼя"
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
+// const letMeSeeYourName = function (callback) {
+//   const yourName = prompt("Введіть ваше ім'я");
+
+//   if (!yourName) {
+//     return "Ви не ввели імʼя";
+//   }
+
+//   return callback(yourName);
+// };
+
+// const greet = function (name) {
+//   return `Привіт ${name}`;
+// };
+
+// console.log(letMeSeeYourName(greet));
+
 /**
   |============================
   | Завдання 2
@@ -29,6 +45,22 @@
 
 // makeProduct("Fish", 350, showProduct);
 
+// function makeProduct(name, price, callback) {
+//   const product = {
+//     name,
+//     price,
+//     id: new Date().getTime(),
+//   };
+
+//   return callback(product);
+// }
+
+// function showProduct(product) {
+//   console.log(product);
+// }
+
+// makeProduct("Fish", 350, showProduct);
+
 /**
   |============================
   | Завдання 3
@@ -41,19 +73,25 @@
 
 // const makeDish = function (shefName, dish) {
 // console.log(`${shefName} is cooking ${dish}`);
-//};
+// };
 
 // makeDish("Mango", "apple pie");
 // makeDish("Poly", "muffins");
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
-// const mango = makeShef("Mango");
-// mango("apple pie"); // Mango is cooking apple pie
-// mango("beef stew"); // Mango is cooking beef stew
+function makeShef(shefName) {
+  return function makeDish(dish) {
+    console.log(`${shefName} is cooking ${dish}`);
+  };
+}
+const mango = makeShef("Mango");
 
-// const poly = makeShef("Poly");
-// poly("pancakes"); // Poly is cooking pancakes
-// poly("eggs and bacon"); // Poly is cooking eggs and bacon
+mango("apple pie"); // Mango is cooking apple pie
+mango("beef stew"); // Mango is cooking beef stew
+
+const poly = makeShef("Poly");
+poly("pancakes"); // Poly is cooking pancakes
+poly("eggs and bacon"); // Poly is cooking eggs and bacon
 
 /**
   |============================
