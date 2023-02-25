@@ -71,9 +71,32 @@
 //  - за допомогою arrow function
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
+// function each(array, callback) {
+//   const result = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     result.push(callback(array[i]));
+//   }
+//   return result;
+// }
+
+// function multiply(value) {
+//   return value * 2;
+// }
 // const array = [3, 5, 6, 34, 8, 83, 12, 34];
 
 // console.log(each(array, multiply));
+
+function each(array, callback) {
+  const result = [];
+  for (let i = 0; i < array.length; i += 1) {
+    result.push(callback(array[i]));
+  }
+  return result;
+}
+
+const array = [3, 5, 6, 34, 8, 83, 12, 34];
+
+console.log(each(array, (value) => value * 2));
 
 /**
   |============================
