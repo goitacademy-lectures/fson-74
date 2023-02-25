@@ -39,21 +39,24 @@
 // Напишіть функцію makeShef(shefName), яка повертає функцію
 // makeDish(dish), що пам'ятає ім'я шефа під час її виклику
 
-// const makeDish = function (shefName, dish) {
-// console.log(`${shefName} is cooking ${dish}`);
-//};
+const makeDish = function (shefName, dish) {
+  console.log(`${shefName} is cooking ${dish}`);
+};
+const makeShef = function (shefName) {
+  return makeDish(shefName);
+};
 
-// makeDish("Mango", "apple pie");
-// makeDish("Poly", "muffins");
+// makeDish('Mango', 'apple pie');
+// makeDish('Poly', 'muffins');
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
-// const mango = makeShef("Mango");
-// mango("apple pie"); // Mango is cooking apple pie
-// mango("beef stew"); // Mango is cooking beef stew
+const mango = makeShef('Mango');
+mango('apple pie'); // Mango is cooking apple pie
+mango('beef stew'); // Mango is cooking beef stew
 
-// const poly = makeShef("Poly");
-// poly("pancakes"); // Poly is cooking pancakes
-// poly("eggs and bacon"); // Poly is cooking eggs and bacon
+const poly = makeShef('Poly');
+// poly('pancakes'); // Poly is cooking pancakes
+// poly('eggs and bacon'); // Poly is cooking eggs and bacon
 
 /**
   |============================
