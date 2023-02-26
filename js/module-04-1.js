@@ -124,17 +124,17 @@ poly('eggs and bacon'); // Poly is cooking eggs and bacon
 
 // console.log(each(array, multiply));
 
-function each(array, callback) {
-  const result = [];
-  for (let i = 0; i < array.length; i += 1) {
-    result.push(callback(array[i]));
-  }
-  return result;
-}
+// function each(array, callback) {
+//   const result = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     result.push(callback(array[i]));
+//   }
+//   return result;
+// }
 
-const array = [3, 5, 6, 34, 8, 83, 12, 34];
+// const array = [3, 5, 6, 34, 8, 83, 12, 34];
 
-console.log(each(array, value => value * 2));
+// console.log(each(array, value => value * 2));
 
 /**
   |============================

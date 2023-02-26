@@ -1,4 +1,4 @@
-import users from "./db.js";
+import users from './db.js';
 /**
   |============================
   | Завдання 1
@@ -138,7 +138,7 @@ import users from "./db.js";
 */
 // Сортування примітивів.
 // Виконайте сортування масиву цін за спаданням та зростанням
-const prices = [1000, 240, 670, 360, 89, 20];
+// const prices = [1000, 240, 670, 360, 89, 20];
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
 /**
@@ -148,7 +148,7 @@ const prices = [1000, 240, 670, 360, 89, 20];
 */
 // Сортування рядків.
 // Виконайте сортування масиву назв моніторів у алфавітному та зворотньому порядку.
-const monitors = ["SAMSUNG", "LG", "ASUS", "DELL", "BENQ", "ASER"];
+// const monitors = ["SAMSUNG", "LG", "ASUS", "DELL", "BENQ", "ASER"];
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
 /**
@@ -160,13 +160,13 @@ const monitors = ["SAMSUNG", "LG", "ASUS", "DELL", "BENQ", "ASER"];
 // Виконайте сортування масиву об'єктів:
 // 1. За зростанням та зменшенням значення властивості price
 // 2. За ім'ям в алфавітному та зворотному порядку
-const items = [
-  { name: "SAMSUNG", price: 15000 },
-  { name: "LG", price: 9000 },
-  { name: "DELL", price: 27000 },
-  { name: "BENQ", price: 12000 },
-  { name: "ASER", price: 7000 },
-];
+// const items = [
+//   { name: "SAMSUNG", price: 15000 },
+//   { name: "LG", price: 9000 },
+//   { name: "DELL", price: 27000 },
+//   { name: "BENQ", price: 12000 },
+//   { name: "ASER", price: 7000 },
+// ];
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
 /**
@@ -176,34 +176,34 @@ const items = [
 */
 // Зібрати в allTopics масив всіх предметів всіх курсів
 // Виконати фільтрацію, залишивши в uniqueTopics тільки унікальні елементи
-const courses = [
-  {
-    name: "Basic HTML+CSS",
-    topics: ["VSCode", "HTML", "CSS", "GitHub", "GitHub Desctop"],
-  },
-  {
-    name: "Intermediate HTML+CSS",
-    topics: ["VSCode", "HTML", "CSS", "GitHub", "Git", "Terminal"],
-  },
-  {
-    name: "Basic JavaScript",
-    topics: [
-      "VSCode",
-      "Type system",
-      "Loops",
-      "Function",
-      "Git",
-      "Conditions",
-      "Classes",
-      "GitHub",
-      "DOM",
-    ],
-  },
-  {
-    name: "Intermediate JavaScript",
-    topics: ["VSCode", "NPM", "Bundlers", "Transpiling", "Git", "Promises", "AJAX", "GitHub"],
-  },
-];
+// const courses = [
+//   {
+//     name: "Basic HTML+CSS",
+//     topics: ["VSCode", "HTML", "CSS", "GitHub", "GitHub Desctop"],
+//   },
+//   {
+//     name: "Intermediate HTML+CSS",
+//     topics: ["VSCode", "HTML", "CSS", "GitHub", "Git", "Terminal"],
+//   },
+//   {
+//     name: "Basic JavaScript",
+//     topics: [
+//       "VSCode",
+//       "Type system",
+//       "Loops",
+//       "Function",
+//       "Git",
+//       "Conditions",
+//       "Classes",
+//       "GitHub",
+//       "DOM",
+//     ],
+//   },
+//   {
+//     name: "Intermediate JavaScript",
+//     topics: ["VSCode", "NPM", "Bundlers", "Transpiling", "Git", "Promises", "AJAX", "GitHub"],
+//   },
+// ];
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
 /**
@@ -215,9 +215,9 @@ const courses = [
 // Присвоїти ID для кожного продукту
 
 const fruits = [
-  { name: "apple", price: 200 },
-  { name: "orange", price: 300 },
-  { name: "grapes", price: 750 },
+  { name: 'apple', price: 200 },
+  { name: 'orange', price: 300 },
+  { name: 'grapes', price: 750 },
 ];
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
@@ -228,11 +228,11 @@ const fruits = [
 */
 // Повернути об'єкт у якому вказується кількість тегів
 const tweets = [
-  { id: "000", likes: 5, tags: ["js", "nodejs"] },
-  { id: "001", likes: 2, tags: ["html", "css"] },
-  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
-  { id: "003", likes: 8, tags: ["css", "react"] },
-  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+  { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+  { id: '001', likes: 2, tags: ['html', 'css'] },
+  { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+  { id: '003', likes: 8, tags: ['css', 'react'] },
+  { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
 ];
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
@@ -243,10 +243,10 @@ const tweets = [
 */
 // Дізнатись суму років практики в об'єкті workers
 const workers = [
-  { id: 10, name: "Mango", years: 14 },
-  { id: 2, name: "Poly", years: 19 },
-  { id: 41, name: "Ajax", years: 30 },
-  { id: 99, name: "Kiwi", years: 22 },
+  { id: 10, name: 'Mango', years: 14 },
+  { id: 2, name: 'Poly', years: 19 },
+  { id: 41, name: 'Ajax', years: 30 },
+  { id: 99, name: 'Kiwi', years: 22 },
 ];
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
