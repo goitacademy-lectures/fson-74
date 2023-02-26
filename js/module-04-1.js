@@ -39,11 +39,13 @@
 // Напишіть функцію makeShef(shefName), яка повертає функцію
 // makeDish(dish), що пам'ятає ім'я шефа під час її виклику
 
-const makeDish = function (shefName, dish) {
-  console.log(`${shefName} is cooking ${dish}`);
-};
+// const makeDish = function (shefName, dish) {
+//   console.log(`${shefName} is cooking ${dish}`);
+// };
 const makeShef = function (shefName) {
-  return makeDish(shefName);
+  return function makeDish(dish) {
+    console.log(`${shefName} is cooking ${dish}`);
+  };
 };
 
 // makeDish('Mango', 'apple pie');
