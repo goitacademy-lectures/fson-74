@@ -12,6 +12,22 @@
 // виведіть в консоль повідомлення "Ви не ввели імʼя"
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
+// const letMeSeeYourName = function (callback) {
+//   const yourName = prompt("Введіть ваше ім'я");
+
+//   if (!yourName) {
+//     return "Ви не ввели імʼя";
+//   }
+
+//   return callback(yourName);
+// };
+
+// const greet = function (name) {
+//   return `Привіт ${name}`;
+// };
+
+// console.log(letMeSeeYourName(greet));
+
 /**
   |============================
   | Завдання 2
@@ -29,6 +45,22 @@
 
 // makeProduct("Fish", 350, showProduct);
 
+// function makeProduct(name, price, callback) {
+//   const product = {
+//     name,
+//     price,
+//     id: new Date().getTime(),
+//   };
+
+//   return callback(product);
+// }
+
+// function showProduct(product) {
+//   console.log(product);
+// }
+
+// makeProduct("Fish", 350, showProduct);
+
 /**
   |============================
   | Завдання 3
@@ -40,25 +72,26 @@
 // makeDish(dish), що пам'ятає ім'я шефа під час її виклику
 
 // const makeDish = function (shefName, dish) {
-//   console.log(`${shefName} is cooking ${dish}`);
+// console.log(`${shefName} is cooking ${dish}`);
 // };
-const makeShef = function (shefName) {
-  return function makeDish(dish) {
-    console.log(`${shefName} is cooking ${dish}`);
-  };
-};
 
 // makeDish('Mango', 'apple pie');
 // makeDish('Poly', 'muffins');
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
+function makeShef(shefName) {
+  return function makeDish(dish) {
+    console.log(`${shefName} is cooking ${dish}`);
+  };
+}
 const mango = makeShef('Mango');
+
 mango('apple pie'); // Mango is cooking apple pie
 mango('beef stew'); // Mango is cooking beef stew
 
 const poly = makeShef('Poly');
-// poly('pancakes'); // Poly is cooking pancakes
-// poly('eggs and bacon'); // Poly is cooking eggs and bacon
+poly('pancakes'); // Poly is cooking pancakes
+poly('eggs and bacon'); // Poly is cooking eggs and bacon
 
 /**
   |============================
@@ -76,9 +109,32 @@ const poly = makeShef('Poly');
 //  - за допомогою arrow function
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
+// function each(array, callback) {
+//   const result = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     result.push(callback(array[i]));
+//   }
+//   return result;
+// }
+
+// function multiply(value) {
+//   return value * 2;
+// }
 // const array = [3, 5, 6, 34, 8, 83, 12, 34];
 
 // console.log(each(array, multiply));
+
+function each(array, callback) {
+  const result = [];
+  for (let i = 0; i < array.length; i += 1) {
+    result.push(callback(array[i]));
+  }
+  return result;
+}
+
+const array = [3, 5, 6, 34, 8, 83, 12, 34];
+
+console.log(each(array, value => value * 2));
 
 /**
   |============================
