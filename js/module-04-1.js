@@ -79,19 +79,19 @@
 // makeDish("Poly", "muffins");
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
-function makeShef(shefName) {
-  return function makeDish(dish) {
-    console.log(`${shefName} is cooking ${dish}`);
-  };
-}
-const mango = makeShef("Mango");
+// function makeShef(shefName) {
+//   return function makeDish(dish) {
+//     console.log(`${shefName} is cooking ${dish}`);
+//   };
+// }
+// const mango = makeShef("Mango");
 
-mango("apple pie"); // Mango is cooking apple pie
-mango("beef stew"); // Mango is cooking beef stew
+// mango("apple pie"); // Mango is cooking apple pie
+// mango("beef stew"); // Mango is cooking beef stew
 
-const poly = makeShef("Poly");
-poly("pancakes"); // Poly is cooking pancakes
-poly("eggs and bacon"); // Poly is cooking eggs and bacon
+// const poly = makeShef("Poly");
+// poly("pancakes"); // Poly is cooking pancakes
+// poly("eggs and bacon"); // Poly is cooking eggs and bacon
 
 /**
   |============================
@@ -123,18 +123,18 @@ poly("eggs and bacon"); // Poly is cooking eggs and bacon
 // const array = [3, 5, 6, 34, 8, 83, 12, 34];
 
 // console.log(each(array, multiply));
+//==========================================arrow function==========================
+// function each(array, callback) {
+//   const result = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     result.push(callback(array[i]));
+//   }
+//   return result;
+// }
 
-function each(array, callback) {
-  const result = [];
-  for (let i = 0; i < array.length; i += 1) {
-    result.push(callback(array[i]));
-  }
-  return result;
-}
+// const array = [3, 5, 6, 34, 8, 83, 12, 34];
 
-const array = [3, 5, 6, 34, 8, 83, 12, 34];
-
-console.log(each(array, (value) => value * 2));
+// console.log(each(array, (value) => value * 2));
 
 /**
   |============================
