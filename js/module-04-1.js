@@ -79,19 +79,19 @@
 // makeDish('Poly', 'muffins');
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
-function makeShef(shefName) {
-  return function makeDish(dish) {
-    console.log(`${shefName} is cooking ${dish}`);
-  };
-}
-const mango = makeShef('Mango');
+// function makeShef(shefName) {
+//   return function makeDish(dish) {
+//     console.log(`${shefName} is cooking ${dish}`);
+//   };
+// }
+// const mango = makeShef('Mango');
 
-mango('apple pie'); // Mango is cooking apple pie
-mango('beef stew'); // Mango is cooking beef stew
+// mango('apple pie'); // Mango is cooking apple pie
+// mango('beef stew'); // Mango is cooking beef stew
 
-const poly = makeShef('Poly');
-poly('pancakes'); // Poly is cooking pancakes
-poly('eggs and bacon'); // Poly is cooking eggs and bacon
+// const poly = makeShef('Poly');
+// poly('pancakes'); // Poly is cooking pancakes
+// poly('eggs and bacon'); // Poly is cooking eggs and bacon
 
 /**
   |============================
@@ -148,6 +148,34 @@ poly('eggs and bacon'); // Poly is cooking eggs and bacon
 //  - за допомогою arrow function
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
+// ---------- Function declaration
+// let logMyCall = 0;
+// function makeCounter() {
+//   function logCall() {
+//     logMyCall += 1;
+//     console.log(logMyCall);
+//     return logMyCall;
+//   }
+//   return logCall();
+// }
+// makeCounter();
+// makeCounter();
+// makeCounter();
+// console.log(makeCounter());
+
+// ----------Arrow Fn
+// let logMyCall = 0;
+// function makeCounter() {
+//   const arrFn = () => {
+//     logMyCall += 1;
+//     return logMyCall;
+//   };
+//   return arrFn();
+// }
+// makeCounter();
+// makeCounter();
+// makeCounter();
+// console.log(makeCounter());
 /**
   |============================
   | Завдання 6
@@ -161,9 +189,17 @@ poly('eggs and bacon'); // Poly is cooking eggs and bacon
 // "Збережений пароль: qwerty не збігається з введеним паролем asdfgh",
 //++++++++++++++++++ Рішення ++++++++++++++++++
 
-// const enteredPassword = savePassword("qwerty");
-// console.log(enteredPassword("qwerty"));
-// console.log(enteredPassword("asdfgh"));
+// function savePassword(pass) {
+//   return function (pass) {
+//     if (pass === 'qwerty') {
+//       return `Збережений пароль: qwerty збігається з введеним паролем ${pass}`;
+//     }
+//     return `Збережений пароль: qwerty не збігається з введеним паролем ${pass}`;
+//   };
+// }
+// const enteredPassword = savePassword('qwerty');
+// console.log(enteredPassword('qwerty'));
+// console.log(enteredPassword('asdfgh'));
 
 /**
   |============================
@@ -177,6 +213,27 @@ poly('eggs and bacon'); // Poly is cooking eggs and bacon
 // Проведіть рефакторинг функції saveDiscount(), використовуючи
 // стрілочні callback-функції
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// --------- Arrow Fn
 
+// const saveDiscount = saveParam => {
+//   const makeDiscount = summ => {
+//     let finSumm = 0;
+//     console.log(summ);
+//     console.log(saveParam);
+//     return (finSumm = summ - saveParam);
+//   };
+//   return makeDiscount;
+// };
 // const discountPremium = saveDiscount(50);
 // console.log(discountPremium(1000));
+// // --------- function declaration
+// const discountPremium = saveDiscount(50);
+// console.log(discountPremium(1000));
+// function saveDiscount(saveParam) {
+//   return function makeDiscount(summ) {
+//     let finSumm = 0;
+//     console.log(summ);
+//     console.log(saveParam);
+//     return (finSumm = summ - saveParam);
+//   };
+// }

@@ -1,15 +1,30 @@
-"use strict";
+'use strict';
 
 //TODO:==============================
 // Напиши функцію, яка перебирає масив логінів і перевіряє
 // чи є ім'я введене в інпут у цьому масиві і у разі,
 // якщо є - виводить повідомлення "Доступ дозволено"
 
-// const res = prompt("Input your name");
-// const str = ["Peter", "John", "Igor", "Sasha"];
+// const res = prompt('Input your name');
+// const str = ['Peter', 'John', 'Igor', 'Sasha'];
+// function checkName(res, str) {
+//   if (str.includes(res)) {
+//     console.log('Доступ дозволено');
+//   }
+//   return 'There is no such user!';
+// }
+// checkName(res, str);
 
 // TODO:==============================
 // Напишіть функцію min(a,b), яка повертає менше із чисел a і b.
+// function min(a, b) {
+
+//   if (a < b) {
+//     return a;
+//   }
+//   return b;
+// }
+// console.log(min(4, 9));
 
 // TODO:==============================
 // // Що виведе наступний код?
@@ -20,6 +35,8 @@
 // // що у fruits?
 // console.log(fruits.length);
 
+// Довжина масиву, 4 елементи
+
 // TODO:===========================
 // Створіть масив styles з елементами «Джаз» та «Блюз».
 // Додайте «Рок-н-рол» в кінець.
@@ -27,9 +44,12 @@
 // Видалить перший елемент масиву і виведіть його в консоль.
 // Вставте «Реп» і «Реггі» на початок масиву.
 // const styles = ['jazz', 'blues'];
+// console.log(styles);
 // styles.push('rock-n-roll');
+// console.log(styles);
 // console.log(styles.indexOf('blues'));
 // styles.splice(1, 1, 'classic');
+// console.log(styles);
 // console.log(styles.shift());
 // console.log(styles);
 // styles.unshift('rap', 'reggie');
@@ -39,6 +59,16 @@
 // Напишіть функцію min(a, b), яка повертає
 // менше з чисел a, b
 // Потрібно додати перевірку, що функція отримує числа
+
+// function min(a, b) {
+//   if (a === Number(a) && b === Number(b)) {
+//     if (a < b) {
+//       return a;
+//     } else return b;
+//   }
+//   return `${a} or ${b} not a Number!`;
+// }
+// console.log(min(3, 9));
 
 // TODO:==============================
 // Напишіть функцію pow(x,n), яка повертає x до ступеня n.
@@ -54,7 +84,30 @@
 
 // TODO:==============================
 // Напишіть функцію яка сумуватиме сусідні числа і пушитиме їх в новий масив
+// ---------- Тут я зробив з перевіркою на число, елементу масиву
 // const someArr = [22, 11, 34, 5, 12, 13, 14, 15];
+// function summ(arr) {
+//   let total = 0;
+//   const tempArr = [];
+//   console.log('typeof', typeof arr[7]);
+//   for (let i = 0; i < arr.length; i += 1) {
+//     if (typeof arr[i + 1] === 'number') {
+//       total = arr[i] + arr[i + 1];
+//       tempArr.push(total);
+//     }
+//   }
+//   return tempArr;
+// }
+// ---------- А тут перший варіант, який може запушити НаН
+// for (const num of arr) {
+//   total = arr[numOne] + arr[numTwo];
+//   tempArr.push(total);
+//   numOne += 1;
+//   console.log('numOne+1', numOne);
+//   numTwo += 1;
+//   console.log('numTwo+1', numTwo);
+// }
+// console.log(summ(someArr));
 
 // TODO:==========================
 // Напишіть функцію logItems(array), яка приймає
@@ -62,14 +115,53 @@
 // елемента масиву виводитиме повідомлення у форматі
 // <номер елемента> - <значення елемента>
 // Нумерація елементів має починатися з першого.
-// ['Джаз', 'Блюз', 'Рок-н-рол', 'Реггі', 'Реп']
-// [{name: 'Джаз', engl: "jazz", number: 1}, {name: 'Блюз', engl: "blues", number: 2}, {name: 'Рок-н-рол', engl: "rock 'n' roll", number: 3}, {name: 'Реггі', engl: "reggae", number: 4}, {name: 'Реп', engl: "rap", number: 5} ]
+
+// ---------- Написав рішення, яке перебирає звичайний масив. Масив об'єктів був в дужках -
+// ---------- [({})] і от тут я не зрозумів, то так треба, щоб він був в дужках, чи то помилка в
+// ---------- завданні?
+// const styles = ['Джаз', 'Блюз', 'Рок-н-рол', 'Реггі', 'Реп'];
+// const arr = [
+//   ({ name: 'Джаз', engl: 'jazz', number: 1 },
+//   { name: 'Блюз', engl: 'blues', number: 2 },
+//   { name: 'Рок-н-рол', engl: "rock 'n' roll", number: 3 },
+//   { name: 'Реггі', engl: 'reggae', number: 4 },
+//   { name: 'Реп', engl: 'rap', number: 5 }),
+// ];
+// function logItems(array) {
+//   let pos = 0;
+//   for (const element of array) {
+//     console.log(`${pos + 1} - ${element}`);
+//     pos += 1;
+//   }
+// }
+// logItems(styles);
+// logItems(arr);
 
 // TODO:==========================
 // Напиши функцію findSmallerNumber(numbers)
 // яка шукає найменше число в масиві.
 // Додай перевірку що функція отримує масив
 // const numbers = [2, 5, 35, 56, 12, 24, 7, 80, 3];
+// function findSmallerNumber(numbers) {
+//   if (!Array.isArray(numbers)) {
+//     // console.log(Array.isArray(numbers));
+//     // console.log(`${numbers} are not array!`);
+//     return `${numbers} are not array!`;
+//   }
+//   let small = numbers[0];
+
+//   for (const number of numbers) {
+//     if (number < small) {
+//       small = number;
+//       console.log(small);
+//     }
+//   }
+//   return small;
+// }
+// console.log(findSmallerNumber(numbers));
+// const a = 2;
+// findSmallerNumber(a);
+// ---------- Щось не з консоль.логом в циклі фор, і ретьорном у ІФ?
 
 // TODO:==============================
 // Функція formatMessage(message, maxLength)
@@ -80,6 +172,10 @@
 // formatMessage("Curabitur ligula sapien", 23); //Повертає 'Curabitur ligula sapien'.
 // formatMessage("Nunc sed turpis a felis in nunc fringilla", 15); //Повертає 'Nunc sed turpis...'.
 // formatMessage("Nunc sed turpis a felis in nunc fringilla", 41); //Повертає 'Nunc sed turpis a felis in nunc fringilla'.
+
+// function formatMessage(message, maxLength) {
+//   console.log(message.slice(0, maxLength));
+// }
 
 // TODO:==========================
 // Напишіть функцію caclculateAverage(),
@@ -107,6 +203,19 @@
 // що складається лише з розділених слів
 // пробілом (параметр string)
 // і повертає найдовше слово у цьому рядку
+// function findLongestWord(string) {
+//   let tempArr = string.split(' ');
+//   let longestWord = tempArr[0].length;
+
+//   for (const word of tempArr) {
+//     if (word.length > longestWord) {
+//       longestWord = word;
+//     }
+//   }
+
+//   return longestWord;
+// }
+// console.log(findLongestWord('This is my test sentence'));
 
 // TODO:==========================
 // Напишіть функції для роботи з масивом
@@ -125,7 +234,7 @@
 // у рядку на протилежний
 // Наприклад 'JavaScript' повинен повернути 'jAVAsCRIPT'
 
-// TODO:============================
+// TODO:=======================/=====
 // Напишіть функцію unique(arr), яка повертає масив, який
 // містить лише унікальні елементи arr.
 // const words = ["HTML","CSS", "JS", "React", "JS", "CSS", "JS",
