@@ -11,18 +11,28 @@
   | який виводить в консоль значення полів login і email об'єкта який його викликав.
   |============================
 */
+// function Account({ login, email }) {
+//   this.login = login;
+//   this.email = email;
+// }
+
+// Account.prototype.getInfo = function () {
+//   console.log(this.login);
+//   console.log(this.email);
+// };
+
 // console.log(Account.prototype.getInfo); // function
 
 // const mango = new Account({
-//   login: "Mangozedog",
-//   email: "mango@dog.woof",
+//   login: 'Mangozedog',
+//   email: 'mango@dog.woof',
 // });
 
 // mango.getInfo(); // Login: Mangozedog, Email: mango@dog.woof
 
 // const poly = new Account({
-//   login: "Poly",
-//   email: "poly@mail.com",
+//   login: 'Poly',
+//   email: 'poly@mail.com',
 // });
 
 // poly.getInfo(); // Login: Poly, Email: poly@mail.com
@@ -39,16 +49,29 @@
   | removeItem(item) - приймає товар і, якщо він є, видаляє його з масиву items
   |============================
 */
+// const Storage = function (arr) {
+//   this.items = arr;
+// };
+// Storage.prototype.getItems = function () {
+//   return this.items;
+// };
+// Storage.prototype.addItem = function (item) {
+//   return this.items.push(item);
+// };
+// Storage.prototype.removeItem = function (item) {
+//   let tempIndx = this.items.indexOf(item);
+//   return this.items.splice(tempIndx, 1);
+// };
 
-// const storage = new Storage(["🍏", "🍌", "🥭", "🍉"]);
+// const storage = new Storage(['🍏', '🍌', '🥭', '🍉']);
 
 // const items = storage.getItems();
 // console.table(items); // ["🍏", "🍌", "🥭", "🍉"]
 
-// storage.addItem("🫐");
+// storage.addItem('🫐');
 // console.table(storage.items); // ["🍏", "🍌", "🥭", "🍉", "🫐"]
 
-// storage.removeItem("🥭");
+// storage.removeItem('🥭');
 // console.table(storage.items); // ["🍏", "🍌", "🫐", "🍉"]
 
 /**
@@ -60,11 +83,29 @@
   | доступи до яких зробіть через геттер та сеттер
   |============================
 */
+// class Client {
+//   #login;
+//   #email;
 
-// const client = new Client("mango", "mango@gmail.com");
+//   constructor(login, email) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get getClientData() {
+//     return {
+//       login: this.#login,
+//       email: this.#email,
+//     };
+//   }
+//   set changeEmail(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+// const client = new Client('mango', 'mango@gmail.com');
 // console.log(client.getClientData); // {login: 'mango', email: 'mango@gmail.com'}
 
-// client.changeEmail = "tango@gmail.com";
+// client.changeEmail = 'tango@gmail.com';
 // console.log(client.getClientData.email); // 'tango@gmail.com'
 
 /**
@@ -94,76 +135,117 @@
   | Напишіть клас Car із зазначеними властивостями і методами.
   |============================
 */
-// class Car {
-//   /*
-//    * Додай статичний метод `getSpecs(car)`,
-//    * який приймає об'єкт-машину як параметр і виводить
-//    * в консоль значення властивостей maxSpeed, speed, isOn, distance и price.
-//    */
+class Car {
+  /*
+   * Додай статичний метод `getSpecs(car)`,
+   * який приймає об'єкт-машину як параметр і виводить
+   * в консоль значення властивостей maxSpeed, speed, isOn, distance и price.
+   */
+  static getSpecs(car) {
+    console.log(car.speed, car.price, car.maxSpeed, car.isOn, car.distance);
+  }
 
-//   /*
-//    * Конструктор отримує об'єкт налаштувань.
-//    *
-//    * Додай властивості майбутнього екземпляра класу:
-//    *  speed - поточна швидкість, початкова 0
-//    *  price - ціна автомобіля
-//    *  maxSpeed - максимальна швидкість
-//    *  isOn - заведений автомобіль, значення true або false. Спочатку false
-//    *  distance - загальний кілометраж, спочатку 0
-//    */
-//   constructor() {
-//   }
+  /*
+   * Конструктор отримує об'єкт налаштувань.
+   *
+   * Додай властивості майбутнього екземпляра класу:
+   *  speed - поточна швидкість, початкова 0
+   *  price - ціна автомобіля
+   *  maxSpeed - максимальна швидкість
+   *  isOn - заведений автомобіль, значення true або false. Спочатку false
+   *  distance - загальний кілометраж, спочатку 0
+   */
 
-//   /*
-//    * Додай геттер і сеттер для властивості price,
-//    * який буде працювати з властивістю ціни автомобіля.
-//    */
+  constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
+    this.speed = speed;
+    this._price = price;
+    this.maxSpeed = maxSpeed;
+    this.isOn = isOn;
+    this.distance = distance;
+  }
 
-//   /*
-//    * Додай код для того, щоб завести автомобіль
-//    * Записує у властивість isOn значення true
-//    */
+  /*
+   * Додай геттер і сеттер для властивості price,
+   * який буде працювати з властивістю ціни автомобіля.
+   */
+  get price() {
+    return this._price;
+  }
+  set price(newPrice) {
+    this._price = newPrice;
+  }
+  /*
+   * Додай код для того, щоб завести автомобіль
+   * Записує у властивість isOn значення true
+   */
+  turnOn() {
+    this.isOn = true;
+    console.log(this.isOn);
+  }
+  /*
+   * Додай код для того, щоб заглушити автомобіль
+   * Записує у властивість isOn значення false,
+   * і скидає поточну швидкість в 0
+   */
+  turnOff() {
+    this.isOn = false;
+    this.speed = 0;
+  }
+  /*
+   * Додає до властивості speed отримане значення,
+   * за умови, що результуюча швидкість
+   * не більше, ніж значення властивості maxSpeed
+   */
+  accelerate(value) {
+    if (this.speed + value <= this.maxSpeed) {
+      this.speed += value;
+    } else {
+      this.speed += this.maxSpeed - this.speed;
+    }
+  }
+  /*
+   * Забирає від властивості speed отримане значення,
+   * за умови, що результуюча швидкість не менше нуля
+   */
+  decelerate(value) {
+    if (this.speed - value >= 0) {
+      this.speed -= value;
+    } else {
+      this.speed -= this.speed; // this.speed = 0;
+    }
+  }
+  /*
+   * Додає в поле distance кілометраж (hours * speed),
+   * але тільки в тому випадку, якщо машина заведена!
+   */
+  drive(hour) {
+    if (this.isOn) {
+      this.distance = hour * this.speed;
+    }
+  }
+}
 
-//   /*
-//    * Додай код для того, щоб заглушити автомобіль
-//    * Записує у властивість isOn значення false,
-//    * і скидає поточну швидкість в 0
-//    */
+const mustang = new Car({ maxSpeed: 200, price: 2000 });
 
-//   /*
-//    * Додає до властивості speed отримане значення,
-//    * за умови, що результуюча швидкість
-//    * не більше, ніж значення властивості maxSpeed
-//    */
+mustang.turnOn();
+mustang.accelerate(50);
+mustang.accelerate(50);
+mustang.accelerate(50);
+mustang.drive(2);
 
-//   /*
-//    * Забирає від властивості speed отримане значення,
-//    * за умови, що результуюча швидкість не менше нуля
-//    */
+Car.getSpecs(mustang);
+// maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000
 
-//   /*
-//    * Додає в поле distance кілометраж (hours * speed),
-//    * але тільки в тому випадку, якщо машина заведена!
-//    */
+mustang.decelerate(20);
+mustang.decelerate(20);
+mustang.decelerate(20);
 
-// }
+mustang.drive(1);
+mustang.turnOff();
 
-// const mustang = new Car({ maxSpeed: 200, price: 2000 });
+Car.getSpecs(mustang);
+// maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
 
-// mustang.turnOn();
-// mustang.accelerate(50);
-// mustang.drive(2);
-
-// Car.getSpecs(mustang);
-// // maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000
-
-// mustang.decelerate(20);
-// mustang.drive(1);
-// mustang.turnOff();
-
-// Car.getSpecs(mustang);
-// // maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
-
-// console.log(mustang.price); // 2000
-// mustang.price = 4000;
-// console.log(mustang.price); // 4000
+console.log(mustang.price); // 2000
+mustang.price = 4000;
+console.log(mustang.price); // 4000
