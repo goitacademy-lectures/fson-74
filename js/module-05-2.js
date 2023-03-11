@@ -13,6 +13,15 @@
 */
 // console.log(Account.prototype.getInfo); // function
 
+// function Account({ login, email }) {
+//   this.login = login;
+//   this.email = email;
+// }
+
+// Account.prototype.getInfo = function () {
+//   console.log(`Login: ${this.login}, Email: ${this.email}`);
+// };
+
 // const mango = new Account({
 //   login: "Mangozedog",
 //   email: "mango@dog.woof",
@@ -40,6 +49,26 @@
   |============================
 */
 
+// const Storage = function (arr) {
+//   this.items = arr;
+// };
+
+// Storage.prototype.getItems = function () {
+//   return this.items;
+// };
+
+// Storage.prototype.addItem = function (item) {
+//   this.items.push(item);
+// };
+
+// Storage.prototype.removeItem = function (item) {
+//   const index = this.items.indexOf(item);
+
+//   this.items.splice(index, 1);
+
+//   return this.items;
+// };
+
 // const storage = new Storage(["🍏", "🍌", "🥭", "🍉"]);
 
 // const items = storage.getItems();
@@ -60,6 +89,27 @@
   | доступи до яких зробіть через геттер та сеттер
   |============================
 */
+
+// class Client {
+//   #login;
+//   #email;
+
+//   constructor(login, email) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get getClientData() {
+//     return {
+//       login: this.#login,
+//       email: this.#email,
+//     };
+//   }
+
+//   set changeEmail(email) {
+//     this.#email = email;
+//   }
+// }
 
 // const client = new Client("mango", "mango@gmail.com");
 // console.log(client.getClientData); // {login: 'mango', email: 'mango@gmail.com'}
