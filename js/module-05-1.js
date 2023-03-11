@@ -5,7 +5,7 @@
 // function makeUser() {
 //   return {
 //     name: "Іван",
-//     ref: this,
+//     ref: this, // undefined
 //   };
 // }
 
@@ -18,13 +18,13 @@
 //     name: "Іван",
 //     ref() {
 //       return this;
-//     }
+//     },
 //   };
 // }
 
 // let user = makeUser();
 
-// alert( user.ref().name ); // Яким буде результат?
+// alert(user.ref().name); // Яким буде результат? Іван
 
 /**
   |============================
@@ -39,14 +39,14 @@
 //   discount: 0.1,
 //   orders: ["order-1", "order-2", "order-3"],
 //   changeDiscount(value) {
-//     discount = value;
+//     this.discount = value;
 //   },
 //   showOrders() {
-//     return orders;
+//     return this.orders;
 //   },
 //   addOrder(cost, order) {
-//     balance -= cost;
-//     orders.push(order);
+//     this.balance -= cost;
+//     this.orders.push(order);
 //   },
 // };
 
@@ -85,10 +85,10 @@
 //   action(itemName);
 // };
 
-// invokeInventoryAction("Compass", inventory.add);
+// invokeInventoryAction("Compass", inventory.add.bind(inventory));
 // console.log(inventory.items);
 
-// invokeInventoryAction("Flashlight", inventory.remove);
+// invokeInventoryAction("Flashlight", inventory.remove.bind(inventory));
 // console.log(inventory.items);
 
 /**
@@ -103,12 +103,15 @@
 //   step: 0,
 //   up() {
 //     this.step += 1;
+//     return this;
 //   },
 //   down() {
 //     this.step -= 1;
+//     return this;
 //   },
 //   showStep() {
 //     console.log(this.step);
+//     return this;
 //   },
 // };
 
