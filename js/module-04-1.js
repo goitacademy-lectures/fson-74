@@ -229,6 +229,7 @@
 // // --------- function declaration
 // const discountPremium = saveDiscount(50);
 // console.log(discountPremium(1000));
+
 // function saveDiscount(saveParam) {
 //   return function makeDiscount(summ) {
 //     let finSumm = 0;

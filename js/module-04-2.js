@@ -8,6 +8,15 @@ import users from './db.js';
 // console.log(getUserNames(usersData))
 // [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// const usersNames = [];
+// function getUsersNames(users) {
+//   users.forEach(names => usersNames.push(names.name));
+// }
+// getUsersNames(users);
+// console.log(usersNames);
+// ----------
+// const usersNames = users.map(user => user.name);
+// console.log(usersNames);
 
 /**
   |============================
@@ -17,6 +26,10 @@ import users from './db.js';
 // Отримати масив об'єктів користувачів за кольором очей (поле eyeColor).
 // console.log(getUsersWithEyeColor(users, 'blue')); // [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Carey Barr]
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// function getUsersWithEyeColor(arr, color) {
+//   return arr.filter(user => user.eyeColor === color);
+// }
+// console.log(getUsersWithEyeColor(users, 'blue'));
 
 /**
   |============================
@@ -26,6 +39,10 @@ import users from './db.js';
 // Отримати масив імен користувачів за статтю (поле gender)
 // console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// function getUsersWithGender(users, gender) {
+//   return users.filter(user => user.gender === gender);
+// }
+// console.log(getUsersWithGender(users, 'male'));
 
 /**
   |============================
@@ -35,6 +52,10 @@ import users from './db.js';
 // Отримати масив тільки неактивних користувачів (поле є активним).
 // console.log(getInactiveUsers(users)); // [об'єкт Moore Hensley, об'єкт Ross Vazquez, об'єкт Blackburn Dotson]
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// function getInactiveUsers(users) {
+//   return users.filter(user => user.isActive === false);
+// }
+// console.log(getInactiveUsers(users));
 
 /**
   |============================
@@ -45,6 +66,11 @@ import users from './db.js';
 // console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {об'єкт користувача Sheree Anthony}
 // console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {об'єкт користувача Elma Head}
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// function getUserWithEmail(arr, email) {
+//   return arr.find(user => user.email === email);
+// }
+// console.log(getUserWithEmail(users, 'shereeanthony@kog.com'));
+// console.log(getUserWithEmail(users, 'elmahead@omatom.com'));
 
 /**
   |============================
@@ -57,6 +83,11 @@ import users from './db.js';
 // console.log (getUsersWithAge(users, 30, 40));
 // [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Blackburn Dotson, об'єкт Sheree Anthony]
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// function getUsersWithAge(arr, a, b) {
+//   return arr.filter(user => user.age > a && user.age < b);
+// }
+// console.log(getUsersWithAge(users, 20, 30));
+// console.log(getUsersWithAge(users, 30, 40));
 
 /**
   |============================
@@ -66,6 +97,13 @@ import users from './db.js';
 // Отримати загальну суму балансу (поле balance) всіх користувачів.
 // console.log(calculateTotalBalance(users)); // 20916
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// function calculateTotalBalance(arr) {
+//   return arr.reduce((accuum, element) => {
+//     accuum += element.balance;
+//     return accuum;
+//   }, 0);
+// }
+// console.log(calculateTotalBalance(users)); // 20916
 
 /**
   |============================
@@ -76,6 +114,11 @@ import users from './db.js';
 // console.log(getUsersWithFriend(users, 'Briana Decker'))); // [ 'Sharlene Bush', 'Sheree Anthony' ]
 // console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// function getUsersWithFriend(arr, friendName) {
+//   return arr.filter(user => user.friends.includes(friendName));
+// }
+// console.log(getUsersWithFriend(users, 'Briana Decker'));
+// console.log(getUsersWithFriend(users, 'Goldie Gentry'));
 
 /**
   |============================
@@ -86,6 +129,10 @@ import users from './db.js';
 // console.log(getNamesSortedByFriendCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// function getNamesSortedByFriendCount(arr) {
+//   return arr.sort((a, b) => a.friends.length - b.friends.length).map(user => user.name);
+// }
+// console.log(getNamesSortedByFriendCount(users));
 
 /**
   |============================
@@ -97,7 +144,13 @@ import users from './db.js';
 // ['adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum',
 // 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam']
 //++++++++++++++++++ Рішення ++++++++++++++++++
-
+// function getClearSkills(arr) {
+//   return arr
+//     .flatMap(user => user.skills)
+//     .filter((element, indx, array) => array.indexOf(element) === indx)
+//     .sort((a, b) => a.localeCompare(b));
+// }
+// console.log(getClearSkills(users));
 /**
   |============================
   | Завдання 11
@@ -105,9 +158,26 @@ import users from './db.js';
 */
 // Напишіть функцію compact(), яка очищає масив від небажаних значень,
 // таких як false, undefined, порожні рядки, нуль, null.
-// const data = [0, 1, false, 2, undefined, "", 3, null];
-// console.log(compact(data)); // [1, 2, 3]
-//++++++++++++++++++ Рішення ++++++++++++++++++
+const data = [0, 1, false, 2, undefined, '', 3, null];
+
+// //++++++++++++++++++ Рішення ++++++++++++++++++
+
+const compact = data => data.filter(elem => elem);
+console.log(compact(data)); // [1, 2, 3]
+
+// function compact(arr) {
+//   console.log('??');
+//   console.log('??', typeof null);
+//   let tempElem = 0;
+//   console.log(Boolean(''));
+//   arr.filter(element => {
+//     if (Boolean(element) === false) {
+//       tempElem = arr.indexOf(element);
+//       arr.splice(tempElem, 1);
+//     }
+//   });
+//   return arr;
+// }
 
 /**
   |============================
@@ -116,8 +186,65 @@ import users from './db.js';
 */
 // Напишіть функцію without(), яка повертає новий масив без наданих значень. Використовуйте примітивні типи.
 // const data = [1, 2, 3, 4, 1, 2];
-// console.log(without(data, 1, 2)); // [3, 4]
-//++++++++++++++++++ Рішення ++++++++++++++++++
+// console.log('without(data, 1, 2)', without(data, 1, 2)); // [3, 4]
+// // console.log('without(data, 2, 4)', without(data, 2, 4));
+// //++++++++++++++++++ Рішення ++++++++++++++++++
+// function without(arr, a, b) {
+// arr =  [1, 2, 3, 4, 1, 2];
+// a = 1
+// b = 2
+
+// return arr.filter((elem, indx, arr) => {
+//   let tempEl = 1;
+//   if (elem === a) {
+//     tempEl = arr.indexOf(elem);
+//     arr.splice(tempEl, 1);
+//   } else return arr;
+// });
+// // А чому видалилась двійка? Я ж її ніде не юзав...
+// // Якщо прибрати елсе, то не видаляється одиничка...
+
+// // let indxOfA = 0;
+// // let indxOfB = 0;
+// const arr2 = arr
+//   .filter((element, indx, array) => array.indexOf(element) === indx)
+//   .filter(element => element !== a)
+//   .filter(element => element !== b);
+// // console.log(arr2);
+// for (const element of arr2) {
+//   console.log(element);
+//   if (element === a) {
+//     console.log('a', a);
+//     indxOfA = arr2.indexOf(element);
+//     console.log('indxOfA cycle1', indxOfA);
+//   }
+// }
+// arr2.splice(indxOfA, 1);
+// console.log(arr2);
+// for (const element of arr2) {
+//   console.log(element);
+//   if (element === b) {
+//     indxOfB = arr2.indexOf(element);
+//     console.log('indxOfB cycle2', indxOfB);
+//   }
+// }
+
+// arr2.splice(indxOfB, 1);
+// return arr2;
+
+// for (const element of arr) {
+//   if (element === a) {
+//     indxOfA = arr.indexOf(element);
+//     arr.splice(indxOfA, 1);
+//   } else {
+//     if (element === b) {
+//       indxOfB = arr.indexOf(element);
+//       arr.splice(indxOfB, 1);
+//     }
+//   }
+// } // Наче мав би виконатись блок після елсе, але щось пішло не так...
+// return arr;
+// }
 
 /**
   |============================

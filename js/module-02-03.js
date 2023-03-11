@@ -222,28 +222,93 @@
 // add(name) додає курс до кінця колекції
 // removeCourse(name) видаляє курс із колекції
 // updateCourse(oldName, newName) змінює ім'я на нове
+// const arrayCourse = [];
+// function add(name) {
+//   arrayCourse.push(name);
+//   console.log(arrayCourse);
+//   return arrayCourse;
+// }
+// function removeCourse(name) {
+//   const indxName = arrayCourse.indexOf(name);
+//   arrayCourse.splice(indxName, 1);
+//   console.log(arrayCourse);
+// }
+// function updateCourse(oldName, newName) {
+//   const indxOldName = arrayCourse.indexOf(oldName);
+//   arrayCourse.splice(indxOldName, 1, newName);
+//   console.log(arrayCourse);
+// }
+// add('name1');
+// add('name2');
+// add('name3');
+// removeCourse('name3');
+// updateCourse('name1', 'newName1');
 
 // TODO:==========================
 // Напишіть код для пошуку пароля в масиві
 // Через include і тернарний оператор
 // const passwords = ['ajax123', 'polly456', 'mango789', 'semiBold'];
 // const password = 'semiBold';
+// function findPass(pass) {
+//   console.log(password.includes(pass) ? `${pass} founded!` : `${pass} not found!`);
+// }
+// findPass(password);
+// findPass('sdlk');
 
 // TODO:==========================
 // Напишіть скрипт, який замінює регістр кожного символу
 // у рядку на протилежний
 // Наприклад 'JavaScript' повинен повернути 'jAVAsCRIPT'
+// function changeCase(stringToChange) {
+//   const letters = stringToChange.split('');
+//   let invertedString = '';
+//   for (const letter of letters) {
+//     //   if (letter === letter.toLowerCase()) {
+//     //     letter.toUpperCase();
+//     //     invertedString += letter.toUpperCase();
+//     //   } else {
+//     //     invertedString += letter.toLowerCase();
+//     //   }
+//     invertedString += letter === letter.toUpperCase() ? letter.toLowerCase() : letter.toUpperCase();
+//   }
+//   console.log(invertedString);
+
+//   return invertedString;
+// }
+// changeCase('JavaScript');
 
 // TODO:=======================/=====
 // Напишіть функцію unique(arr), яка повертає масив, який
 // містить лише унікальні елементи arr.
-// const words = ["HTML","CSS", "JS", "React", "JS", "CSS", "JS",
-// "Node.js", "JS", "React", "CSS", "React", "HTML", "Node.js"];
+// const words = [
+//   'HTML',
+//   'CSS',
+//   'JS',
+//   'React',
+//   'JS',
+//   'CSS',
+//   'JS',
+//   'Node.js',
+//   'JS',
+//   'React',
+//   'CSS',
+//   'React',
+//   'HTML',
+//   'Node.js',
+// ];
+// function unique(arr) {
+//   return arr.filter((element, indx, array) => array.indexOf(element) === indx);
+// }
+// console.log(unique(words));
 
 // TODO:==============================
 // Привести масив до одного рівня
-// const arr = [
-// [23, 11, ["hello", "world", "Vasya"]]
+// const arr = [23, 11, ['hello', 'world', 'Vasya']];
+// function returnArr(arr) {
+//   let arrOne = arr.flatMap(elem => elem);
+//   return arrOne;
+// }
+// console.log(returnArr(arr));
 
 // TODO:==============================
 //  * Працюємо з колекцією товарів у кошику:
