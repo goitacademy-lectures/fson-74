@@ -158,26 +158,12 @@ import users from './db.js';
 */
 // Напишіть функцію compact(), яка очищає масив від небажаних значень,
 // таких як false, undefined, порожні рядки, нуль, null.
-const data = [0, 1, false, 2, undefined, '', 3, null];
+// const data = [0, 1, false, 2, undefined, '', 3, null];
 
 // //++++++++++++++++++ Рішення ++++++++++++++++++
 
-const compact = data => data.filter(elem => elem);
-console.log(compact(data)); // [1, 2, 3]
-
-// function compact(arr) {
-//   console.log('??');
-//   console.log('??', typeof null);
-//   let tempElem = 0;
-//   console.log(Boolean(''));
-//   arr.filter(element => {
-//     if (Boolean(element) === false) {
-//       tempElem = arr.indexOf(element);
-//       arr.splice(tempElem, 1);
-//     }
-//   });
-//   return arr;
-// }
+// const compact = data => data.filter(elem => elem);
+// console.log(compact(data)); // [1, 2, 3]
 
 /**
   |============================
@@ -190,60 +176,10 @@ console.log(compact(data)); // [1, 2, 3]
 // // console.log('without(data, 2, 4)', without(data, 2, 4));
 // //++++++++++++++++++ Рішення ++++++++++++++++++
 // function without(arr, a, b) {
-// arr =  [1, 2, 3, 4, 1, 2];
-// a = 1
-// b = 2
-
-// return arr.filter((elem, indx, arr) => {
-//   let tempEl = 1;
-//   if (elem === a) {
-//     tempEl = arr.indexOf(elem);
-//     arr.splice(tempEl, 1);
-//   } else return arr;
-// });
-// // А чому видалилась двійка? Я ж її ніде не юзав...
-// // Якщо прибрати елсе, то не видаляється одиничка...
-
-// // let indxOfA = 0;
-// // let indxOfB = 0;
-// const arr2 = arr
-//   .filter((element, indx, array) => array.indexOf(element) === indx)
-//   .filter(element => element !== a)
-//   .filter(element => element !== b);
-// // console.log(arr2);
-// for (const element of arr2) {
-//   console.log(element);
-//   if (element === a) {
-//     console.log('a', a);
-//     indxOfA = arr2.indexOf(element);
-//     console.log('indxOfA cycle1', indxOfA);
-//   }
-// }
-// arr2.splice(indxOfA, 1);
-// console.log(arr2);
-// for (const element of arr2) {
-//   console.log(element);
-//   if (element === b) {
-//     indxOfB = arr2.indexOf(element);
-//     console.log('indxOfB cycle2', indxOfB);
-//   }
-// }
-
-// arr2.splice(indxOfB, 1);
-// return arr2;
-
-// for (const element of arr) {
-//   if (element === a) {
-//     indxOfA = arr.indexOf(element);
-//     arr.splice(indxOfA, 1);
-//   } else {
-//     if (element === b) {
-//       indxOfB = arr.indexOf(element);
-//       arr.splice(indxOfB, 1);
-//     }
-//   }
-// } // Наче мав би виконатись блок після елсе, але щось пішло не так...
-// return arr;
+//   return arr
+//     .filter((element, indx, array) => array.indexOf(element) === indx)
+//     .filter(element => element !== a)
+//     .filter(element => element !== b);
 // }
 
 /**
@@ -251,12 +187,43 @@ console.log(compact(data)); // [1, 2, 3]
   | Завдання 13
   |============================
 */
-// Необхідно написати функцію isEqualSymbols(), що приймає в аргументах два рядки
-// і повертає true, якщо ці рядки складаються з ідентичних літер і false в іншому випадку.
-// console.log(isEqualSymbols("GOOD", "GODO")); // результат true
-// console.log(isEqualSymbols("кіт", "струм")); // результат false
-// console.log(isEqualSymbols("кіт", "тік")); // результат true
-//++++++++++++++++++ Рішення ++++++++++++++++++
+// // Необхідно написати функцію isEqualSymbols(), що приймає в аргументах два рядки
+// // і повертає true, якщо ці рядки складаються з ідентичних літер і false в іншому випадку.
+// console.log('1. GOOD & GODO', isEqualSymbols('GOOD', 'GODO')); // результат true
+// console.log('2. кіт & струм', isEqualSymbols('кіт', 'струм')); // результат false
+// console.log('3. кіт & тік', isEqualSymbols('кіт', 'тік')); // результат true
+// console.log('4. сок & супер', isEqualSymbols('сок', 'супер')); // результат false
+// //++++++++++++++++++ Рішення ++++++++++++++++++
+// function isEqualSymbols(str1, str2) {
+//   const arrOne = str1.split('');
+//   const arrTwo = str2.split('');
+//   let a = 0;
+//   let b = 0;
+//   if (arrOne.length < arrTwo.length) {
+//     console.log('arrOne.length < arrTwo.length');
+//     for (let i = 0; i < arrTwo.length; i += 1) {
+//       if (arrTwo.includes(arrOne[i])) {
+//         a += 1;
+//       } else {
+//         b += 1;
+//       }
+//     }
+//   } else {
+//     arrTwo.length < arrOne.length;
+//     console.log('arrTwo.length < arrOne.length');
+//     for (let i = 0; i < arrOne.length; i += 1) {
+//       if (arrOne.includes(arrTwo[i])) {
+//         a += 1;
+//       } else {
+//         b += 1;
+//       }
+//     }
+//   }
+//   if (a > b) {
+//     return true;
+//   }
+//   return false;
+// }
 
 /**
   |============================
@@ -267,6 +234,8 @@ console.log(compact(data)); // [1, 2, 3]
 // Виконайте сортування масиву цін за спаданням та зростанням
 // const prices = [1000, 240, 670, 360, 89, 20];
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// console.log(prices.sort((a, b) => a - b));
+// console.log(prices.sort((a, b) => b - a));
 
 /**
   |============================
@@ -275,8 +244,10 @@ console.log(compact(data)); // [1, 2, 3]
 */
 // Сортування рядків.
 // Виконайте сортування масиву назв моніторів у алфавітному та зворотньому порядку.
-// const monitors = ["SAMSUNG", "LG", "ASUS", "DELL", "BENQ", "ASER"];
+// const monitors = ['SAMSUNG', 'LG', 'ASUS', 'DELL', 'BENQ', 'ASER'];
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// console.log(monitors.sort((a, b) => a.localeCompare(b)));
+// console.log(monitors.sort((a, b) => b.localeCompare(a)));
 
 /**
   |============================
@@ -288,13 +259,22 @@ console.log(compact(data)); // [1, 2, 3]
 // 1. За зростанням та зменшенням значення властивості price
 // 2. За ім'ям в алфавітному та зворотному порядку
 // const items = [
-//   { name: "SAMSUNG", price: 15000 },
-//   { name: "LG", price: 9000 },
-//   { name: "DELL", price: 27000 },
-//   { name: "BENQ", price: 12000 },
-//   { name: "ASER", price: 7000 },
+//   { name: 'SAMSUNG', price: 15000 },
+//   { name: 'LG', price: 9000 },
+//   { name: 'DELL', price: 27000 },
+//   { name: 'BENQ', price: 12000 },
+//   { name: 'ASER', price: 7000 },
 // ];
-//++++++++++++++++++ Рішення ++++++++++++++++++
+// //++++++++++++++++++ Рішення ++++++++++++++++++
+
+// const ascending = [...items].sort((a, b) => a.price - b.price);
+// console.log(ascending);
+// console.log(items.sort((a, b) => a.price - b.price));
+// const descending = [...items].sort((a, b) => b.price - a.price);
+// console.log(descending);
+// console.log(items.sort((a, b) => b.price - a.price));
+// console.log(items.sort((a, b) => a.name.localeCompare(b.name)));
+// console.log(items.sort((a, b) => b.name.localeCompare(a.name)));
 
 /**
   |============================
@@ -305,33 +285,37 @@ console.log(compact(data)); // [1, 2, 3]
 // Виконати фільтрацію, залишивши в uniqueTopics тільки унікальні елементи
 // const courses = [
 //   {
-//     name: "Basic HTML+CSS",
-//     topics: ["VSCode", "HTML", "CSS", "GitHub", "GitHub Desctop"],
+//     name: 'Basic HTML+CSS',
+//     topics: ['VSCode', 'HTML', 'CSS', 'GitHub', 'GitHub Desctop'],
 //   },
 //   {
-//     name: "Intermediate HTML+CSS",
-//     topics: ["VSCode", "HTML", "CSS", "GitHub", "Git", "Terminal"],
+//     name: 'Intermediate HTML+CSS',
+//     topics: ['VSCode', 'HTML', 'CSS', 'GitHub', 'Git', 'Terminal'],
 //   },
 //   {
-//     name: "Basic JavaScript",
+//     name: 'Basic JavaScript',
 //     topics: [
-//       "VSCode",
-//       "Type system",
-//       "Loops",
-//       "Function",
-//       "Git",
-//       "Conditions",
-//       "Classes",
-//       "GitHub",
-//       "DOM",
+//       'VSCode',
+//       'Type system',
+//       'Loops',
+//       'Function',
+//       'Git',
+//       'Conditions',
+//       'Classes',
+//       'GitHub',
+//       'DOM',
 //     ],
 //   },
 //   {
-//     name: "Intermediate JavaScript",
-//     topics: ["VSCode", "NPM", "Bundlers", "Transpiling", "Git", "Promises", "AJAX", "GitHub"],
+//     name: 'Intermediate JavaScript',
+//     topics: ['VSCode', 'NPM', 'Bundlers', 'Transpiling', 'Git', 'Promises', 'AJAX', 'GitHub'],
 //   },
 // ];
-//++++++++++++++++++ Рішення ++++++++++++++++++
+// //++++++++++++++++++ Рішення ++++++++++++++++++
+// const allTopics = courses.flatMap(element => element.topics);
+// console.log(allTopics);
+// const uniqueTopics = allTopics.filter((element, indx, arr) => arr.indexOf(element) === indx);
+// console.log(uniqueTopics);
 
 /**
   |============================
@@ -347,6 +331,15 @@ const fruits = [
   { name: 'grapes', price: 750 },
 ];
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// function discount(arr, value) {
+//   arr.forEach(element => (element.price = element.price * ((100 - value) / 100)));
+// }
+// discount(fruits, 20);
+// function addId() {
+//   fruits.forEach(element => (element.id = Math.round(Math.random() * 100)));
+// }
+// addId();
+// console.log(fruits);
 
 /**
   |============================
@@ -376,6 +369,11 @@ const workers = [
   { id: 99, name: 'Kiwi', years: 22 },
 ];
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// const summOfYears = workers.reduce((acuum, element) => {
+//   acuum += element.years;
+//   return acuum;
+// }, 0);
+// console.log(summOfYears);
 
 /**
   |============================
@@ -386,6 +384,15 @@ const workers = [
 // Потім порахуйте квадратний корінь цих чисел.
 const array = [121, -2, 225, 0, 4, -5, 36, -11];
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// array.forEach(elem => {
+//   let temp = 0;
+//   if (elem < 0) {
+//     temp = array.indexOf(elem);
+//     array.splice(temp, 1);
+
+//   }
+// });
+// console.log(array);
 
 /**
   |============================
@@ -397,6 +404,8 @@ const array = [121, -2, 225, 0, 4, -5, 36, -11];
 const celsius = [-15, -5, 0, 10, 16, 20, 24, 32];
 // fahrenheit is [5, 23, 32, 50, 60.8, 68, 75.2, 89.6]
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// const fahrenheit = celsius.map(element => element * 1.8 + 32);
+// console.log(fahrenheit);
 
 /**
   |============================
@@ -406,3 +415,13 @@ const celsius = [-15, -5, 0, 10, 16, 20, 24, 32];
 // Знайти унікальні елементи за допомогою reduce
 const numbers = [1, 9, 0, 1, 5, 9, 1, 6];
 //++++++++++++++++++ Рішення ++++++++++++++++++
+// const uniqueEl = numbers.reduce((acuum, element, index, array) => {
+//   if (array.indexOf(element) === index) {
+//     console.log('element', element);
+//     console.log('index:', index);
+//     acuum.push(element);
+//   }
+//   return acuum;
+// }, []);
+// console.log(numbers);
+// console.log(uniqueEl);
