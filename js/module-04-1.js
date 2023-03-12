@@ -123,6 +123,14 @@
 // const array = [3, 5, 6, 34, 8, 83, 12, 34];
 
 // console.log(each(array, multiply));
+//==========================================arrow function==========================
+// function each(array, callback) {
+//   const result = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     result.push(callback(array[i]));
+//   }
+//   return result;
+// }
 
 // function each(array, callback) {
 //   const result = [];
