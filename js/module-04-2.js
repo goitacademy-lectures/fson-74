@@ -191,10 +191,10 @@ import users from './db.js';
 // // і повертає true, якщо ці рядки складаються з ідентичних літер і false в іншому випадку.
 // console.log('1. GOOD & GODO', isEqualSymbols('GOOD', 'GODO')); // результат true
 // console.log('2. кіт & струм', isEqualSymbols('кіт', 'струм')); // результат false
-// console.log('3. кіт & тік', isEqualSymbols('кіт', 'тік')); // результат true
-// console.log('4. сок & супер', isEqualSymbols('сок', 'супер')); // результат false
+console.log('3. кіт & тік', isEqualSymbols('кіт', 'тік')); // результат true
+console.log('4. сок & супер', isEqualSymbols('сок', 'супер')); // результат false
 // //++++++++++++++++++ Рішення ++++++++++++++++++
-// function isEqualSymbols(str1, str2) {
+
 //   const arrOne = str1.split('');
 //   const arrTwo = str2.split('');
 //   let a = 0;
@@ -422,6 +422,7 @@ const array = [121, -2, 225, 0, 4, -5, 36, -11];
 //   }
 // });
 // console.log(array);
+// console.log(Math.sqrt);
 
 /**
   |============================
@@ -453,9 +454,7 @@ const numbers = [1, 9, 0, 1, 5, 9, 1, 6];
 // return acuum;
 // , []);
 // const findUniqueNumbers = array =>
-//   array.reduce((acuum, number) => {
-//     return acuum.includes(number) ? acuum : [...acuum, number];
-//   }, []);
+//   array.reduce((acuum, number) => (acuum.includes(number) ? acuum : [...acuum, number]), []);
 // console.log(findUniqueNumbers(numbers));
 // console.log(numbers);
 // console.log(uniqueEl);
