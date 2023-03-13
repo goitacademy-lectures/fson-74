@@ -355,6 +355,35 @@ const tweets = [
   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
 ];
 //++++++++++++++++++ Рішення ++++++++++++++++++
+const obj = {};
+console.log(getTags(tweets));
+function getTags(arr) {
+  obj.js = 0;
+  obj.nodejs = 0;
+  obj.html = 0;
+  obj.css = 0;
+  obj.react = 0;
+  arr
+    .flatMap(element => element.tags)
+    .map(element => {
+      if (element === 'js') {
+        obj.js += 1;
+      }
+      if (element === 'nodejs') {
+        obj.nodejs += 1;
+      }
+      if (element === 'html') {
+        obj.html += 1;
+      }
+      if (element === 'css') {
+        obj.css += 1;
+      }
+      if (element === 'react') {
+        obj.react += 1;
+      }
+    });
+  return obj;
+}
 
 /**
   |============================
