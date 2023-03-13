@@ -234,8 +234,8 @@ import users from './db.js';
 // Виконайте сортування масиву цін за спаданням та зростанням
 // const prices = [1000, 240, 670, 360, 89, 20];
 //++++++++++++++++++ Рішення ++++++++++++++++++
-// console.log(prices.sort((a, b) => a - b));
-// console.log(prices.sort((a, b) => b - a));
+// console.log([...prices].sort((a, b) => a - b));
+// console.log([...prices].sort((a, b) => b - a));
 
 /**
   |============================
@@ -246,8 +246,8 @@ import users from './db.js';
 // Виконайте сортування масиву назв моніторів у алфавітному та зворотньому порядку.
 // const monitors = ['SAMSUNG', 'LG', 'ASUS', 'DELL', 'BENQ', 'ASER'];
 //++++++++++++++++++ Рішення ++++++++++++++++++
-// console.log(monitors.sort((a, b) => a.localeCompare(b)));
-// console.log(monitors.sort((a, b) => b.localeCompare(a)));
+// console.log([...monitors].sort((a, b) => a.localeCompare(b)));
+// console.log([...monitors].sort((a, b) => b.localeCompare(a)));
 
 /**
   |============================
@@ -445,12 +445,17 @@ const celsius = [-15, -5, 0, 10, 16, 20, 24, 32];
 const numbers = [1, 9, 0, 1, 5, 9, 1, 6];
 //++++++++++++++++++ Рішення ++++++++++++++++++
 // const uniqueEl = numbers.reduce((acuum, element, index, array) => {
-//   if (array.indexOf(element) === index) {
-//     console.log('element', element);
-//     console.log('index:', index);
-//     acuum.push(element);
-//   }
-//   return acuum;
-// }, []);
+// if (array.indexOf(element) === index) {
+//   console.log('element', element);
+//   console.log('index:', index);
+//   acuum.push(element);
+// }
+// return acuum;
+// , []);
+// const findUniqueNumbers = array =>
+//   array.reduce((acuum, number) => {
+//     return acuum.includes(number) ? acuum : [...acuum, number];
+//   }, []);
+// console.log(findUniqueNumbers(numbers));
 // console.log(numbers);
 // console.log(uniqueEl);
