@@ -4,12 +4,37 @@
 При натисканні на кнопку "SHOW ME" в консоль має виводити значення з поля введення (дивіться на елементи в html-розмітці)
 */
 
+// const btnOutput = document.querySelector("#alertButton");
+// const inpCons = document.querySelector("#alertInput");
+
+// btnOutput.addEventListener("click", () => console.log(inpCons.value));
+
 //TODO:==============================================
 /*
 Завдання 2
 Після натискання кнопки "SWAP ME" здійснюється обмін вмістом між двома інпутами.
 Ви можете натиснути на неї кілька разів або вручну змінити вміст інпутів.
 */
+
+// const refs = {
+//   swapButton: document.querySelector("#swapButton"),
+//   leftSwapInput: document.querySelector("#leftSwapInput"),
+//   rightSwapInput: document.querySelector("#rightSwapInput"),
+// };
+
+// refs.swapButton.addEventListener("click", () => {
+//   const rightInput = refs.rightSwapInput.value;
+//   const leftInput = refs.leftSwapInput.value;
+
+//   if (leftInput === rightInput) {
+//     console.log("Exit");
+//     return;
+//   }
+
+//   refs.rightSwapInput.value = leftInput;
+
+//   refs.leftSwapInput.value = rightInput;
+// });
 
 //TODO:==============================================
 /*
@@ -19,11 +44,83 @@
 і кнопка набуває початкового вигляду.
 */
 
+// const refs = {
+//   passwordInput: document.querySelector("#passwordInput"),
+//   passwordButton: document.querySelector("#passwordButton"),
+// };
+
+// refs.passwordButton.addEventListener("click", handleBtnClick);
+
+// function handleBtnClick() {
+//   //   const inputType = refs.passwordInput.getAttribute("type");
+
+//   //   if (inputType === "text") {
+//   //     refs.passwordInput.setAttribute("type", "password");
+//   //     passwordButton.textContent = "Розкрити";
+//   //   } else {
+//   //     refs.passwordInput.setAttribute("type", "text");
+//   //     passwordButton.textContent = "Приховати";
+//   //   }
+
+//   const type =
+//     refs.passwordInput.getAttribute("type") === "password"
+//       ? "text"
+//       : "password";
+
+//   refs.passwordInput.setAttribute("type", type);
+
+//   passwordButton.textContent = type === "password" ? "Розкрити" : "Приховати";
+// }
+
 //TODO:==============================================
 /*
 Завдання 4
 Кнопка "Зменшити" робить квадрат менше на 10 пікселів, кнопка "Збільшити" - більше на 10 пікселів. Використай інструкцію switch
 */
+
+// const refs = {
+//   decrease: document.querySelector("#decrease"),
+//   increase: document.querySelector("#increase"),
+//   box: document.querySelector("#box"),
+// };
+
+// refs.decrease.addEventListener("click", changeBoxSize);
+
+// refs.increase.addEventListener("click", changeBoxSize);
+
+// function changeBoxSize(event) {
+//   const boxWidth = refs.box.offsetWidth;
+//   const boxHeight = refs.box.offsetHeight;
+
+//   const btnType = event.target.getAttribute("id");
+
+//   switch (btnType) {
+//     case "decrease":
+//       refs.box.style.width = boxWidth - 10 + "px";
+//       refs.box.style.height = boxHeight - 10 + "px";
+
+//       break;
+
+//     case "increase":
+//       refs.box.style.width = boxWidth + 10 + "px";
+//       refs.box.style.height = boxHeight + 10 + "px";
+
+//       break;
+//   }
+// }
+
+// switch (значення) {
+//     case значення:
+//       інструкції;
+//       break;
+
+//     case значення:
+//       інструкції;
+//       break;
+
+//     default:
+//       інструкції;
+//   }
 
 //TODO:==============================================
 /*
