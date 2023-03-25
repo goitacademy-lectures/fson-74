@@ -17,10 +17,9 @@
 // }
 
 // Account.prototype.getInfo = function () {
-//   console.log(this.login);
-//   console.log(this.email);
+//   console.log(`Login: ${this.login}, Email: ${this.email}`);
 // };
-
+//==============================================================================
 // console.log(Account.prototype.getInfo); // function
 
 // const mango = new Account({
@@ -63,7 +62,26 @@
 //   return this.items.splice(tempIndx, 1);
 // };
 
-// const storage = new Storage(['🍏', '🍌', '🥭', '🍉']);
+// function Storage(items) {
+//   this.items = items;
+
+//   this.getItems = function () {
+//     return this.items;
+//   };
+
+//   this.addItem = function (item) {
+//     this.items.push(item);
+//   };
+
+//   this.removeItem = function (item) {
+//     const index = this.items.indexOf(item);
+//     if (index !== -1) {
+//       this.items.splice(index, 1);
+//     }
+//   };
+// }
+
+// const storage = new Storage(["🍏", "🍌", "🥭", "🍉"]);
 
 // const items = storage.getItems();
 // console.table(items); // ["🍏", "🍌", "🥭", "🍉"]
@@ -98,6 +116,23 @@
 //       email: this.#email,
 //     };
 //   }
+
+//   set changeEmail(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+
+//   constructor(login, email) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get getClientData() {
+//     return {
+//       login: this.#login,
+//       email: this.#email,
+//     };
+//   }
 //   set changeEmail(newEmail) {
 //     this.#email = newEmail;
 //   }
@@ -108,6 +143,8 @@
 // client.changeEmail = 'tango@gmail.com';
 // console.log(client.getClientData.email); // 'tango@gmail.com'
 
+// const anotherClient = new Client("poly", "poly@post.ua");
+// console.log(anotherClient.getClientData);
 /**
   |============================
   | Завдання 4
@@ -119,15 +156,53 @@
   |============================
 */
 
-// const firstNote = new Notes();
+class Notes {
+  static Priority() {
+    return {
+      HIGHT: "hight",
+      LOW: "low",
+    };
+  }
+  constructor() {
+    this.items = [];
+  }
 
-// firstNote.addNote({ text: "Купити фрукти", priority: Notes.Priority().LOW });
-// firstNote.addNote({ text: "Прибрати в кімнаті", priority: Notes.Priority().LOW });
-// console.log(firstNote.items); // [{text: 'Купити фрукти', priority: 'low'}, {text: 'Прибрати в кімнаті', priority: 'low'}]
+  addNote(note) {
+    return this.items.push(note);
+  }
 
-// firstNote.updatePriority({ text: "Купити фрукти", newPriority: Notes.Priority().HIGHT });
-// console.log(firstNote.items); // [{text: 'Купити фрукти', priority: 'hight'}, {text: 'Прибрати в кімнаті', priority: 'low'}]
+  removeNote(noteName) {
+    const index = this.items.findIndex((item) => item.text === noteName);
+    if (index !== -1) {
+      this.items.splice(index, 1);
+    }
+  }
 
+  updatePriority({ text, newPriority }) {
+    const index = this.items.findIndex((item) => item.text === text);
+    if (index !== -1) {
+      this.items[index].priority = newPriority;
+    }
+  }
+}
+
+const firstNote = new Notes();
+
+firstNote.addNote({ text: "Купити фрукти", priority: Notes.Priority().LOW });
+firstNote.addNote({
+  text: "Прибрати в кімнаті",
+  priority: Notes.Priority().LOW,
+});
+console.log(firstNote.items); // [{text: 'Купити фрукти', priority: 'low'}, {text: 'Прибрати в кімнаті', priority: 'low'}]
+
+firstNote.updatePriority({
+  text: "Купити фрукти",
+  newPriority: Notes.Priority().HIGHT,
+});
+console.log(firstNote.items); // [{text: 'Купити фрукти', priority: 'hight'}, {text: 'Прибрати в кімнаті', priority: 'low'}]
+
+firstNote.removeNote("Прибрати в кімнаті");
+console.log(firstNote.items); //[{text: 'Купити фрукти', priority: 'hight'}]
 /**
   |============================
   | Завдання 5
