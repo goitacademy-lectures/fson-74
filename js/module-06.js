@@ -99,9 +99,8 @@ const refs = {
 };
 refs.divEl.addEventListener('click', doSomething);
 function doSomething(event) {
-  const origWidth = refs.boxEl.offsetwidth;
-  const origHeight = refs.boxEl.offsetheight;
-  console.log(origWidth);
+  const origWidth = refs.boxEl.offsetWidth;
+  const origHeight = refs.boxEl.offsetHeight;
   switch (event.target.getAttribute('id')) {
     case 'increase':
       refs.boxEl.style.width = origWidth + 10 + 'px';
@@ -109,7 +108,7 @@ function doSomething(event) {
       break;
     case 'decrease':
       refs.boxEl.style.width = origWidth - 10 + 'px';
-      refs.boxEl.style.height = origHeight - 1 + 'px';
+      refs.boxEl.style.height = origHeight - 10 + 'px';
       break;
   }
 }
