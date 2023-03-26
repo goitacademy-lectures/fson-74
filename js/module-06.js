@@ -4,12 +4,32 @@
 При натисканні на кнопку "SHOW ME" в консоль має виводити значення з поля введення (дивіться на елементи в html-розмітці)
 */
 
+// const alertBtnEl = document.querySelector('#alertButton');
+// const alertInputEl = document.querySelector('#alertInput');
+// alertBtnEl.addEventListener('click', showAlert);
+// function showAlert() {
+//   console.log(alertInputEl.value);
+// }
+
 //TODO:==============================================
 /*
 Завдання 2
 Після натискання кнопки "SWAP ME" здійснюється обмін вмістом між двома інпутами.
 Ви можете натиснути на неї кілька разів або вручну змінити вміст інпутів.
 */
+
+// const refs = {
+//   swapButtonEl: document.querySelector('#swapButton'),
+//   leftSwapInputEl: document.querySelector('#leftSwapInput'),
+//   rightSwapInputEl: document.querySelector('#rightSwapInput'),
+// };
+// refs.swapButtonEl.addEventListener('click', swapInp);
+// function swapInp() {
+//   let swapOne = refs.leftSwapInputEl.value;
+//   let swapTwo = refs.rightSwapInputEl.value;
+//   refs.leftSwapInputEl.value = swapTwo;
+//   refs.rightSwapInputEl.value = swapOne;
+// }
 
 //TODO:==============================================
 /*
@@ -18,6 +38,29 @@
 "Розкрити", при повторному натисканні текст знову стає доступним
 і кнопка набуває початкового вигляду.
 */
+
+/* <div>
+  <p class="taskTitle">ЗАДАЧА 3</p>
+  <input id="passwordInput" type="text" />
+  <button id="passwordButton">Приховати</button>
+</div>; */
+const refs = {
+  passInpEl: document.querySelector('#passwordInput'),
+  hideBtnEl: document.querySelector('#passwordButton'),
+};
+refs.hideBtnEl.addEventListener('click', hidePass);
+function hidePass() {
+  refs.passInpEl.setAttribute('type', 'password');
+  refs.hideBtnEl.textContent = 'Розкрити';
+  refs.hideBtnEl.removeEventListener('click', hidePass);
+  refs.hideBtnEl.addEventListener('click', showPass);
+}
+function showPass() {
+  refs.passInpEl.setAttribute('type', 'text');
+  refs.hideBtnEl.textContent = 'Приховати';
+  refs.hideBtnEl.removeEventListener('click', showPass);
+  refs.hideBtnEl.addEventListener('click', hidePass);
+}
 
 //TODO:==============================================
 /*
