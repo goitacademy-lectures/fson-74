@@ -50,17 +50,32 @@ const refs = {
 };
 refs.hideBtnEl.addEventListener('click', hidePass);
 function hidePass() {
-  refs.passInpEl.setAttribute('type', 'password');
-  refs.hideBtnEl.textContent = 'Розкрити';
-  refs.hideBtnEl.removeEventListener('click', hidePass);
-  refs.hideBtnEl.addEventListener('click', showPass);
+  const type = refs.passInpEl.getAttribute('type');
+  console.log(type);
+  const whatAType = type === 'password' ? 'text' : 'password';
+  refs.passInpEl.setAttribute('type', whatAType);
+  const nameBtn = whatAType === 'password' ? 'Розкрити' : 'Показати';
+  refs.hideBtnEl.textContent = nameBtn;
+  // if (type === 'password') {
+  //   refs.passInpEl.setAttribute('type', 'text');
+  //   refs.hideBtnEl.textContent = 'Приховати';
+  // } else {
+  //   refs.passInpEl.setAttribute('type', 'password');
+  //   refs.hideBtnEl.textContent = 'Розкрити';
+  // }
 }
-function showPass() {
-  refs.passInpEl.setAttribute('type', 'text');
-  refs.hideBtnEl.textContent = 'Приховати';
-  refs.hideBtnEl.removeEventListener('click', showPass);
-  refs.hideBtnEl.addEventListener('click', hidePass);
-}
+// function hidePass() {
+//   refs.passInpEl.setAttribute('type', 'password');
+//   refs.hideBtnEl.textContent = 'Розкрити';
+//   refs.hideBtnEl.removeEventListener('click', hidePass);
+//   refs.hideBtnEl.addEventListener('click', showPass);
+// }
+// function showPass() {
+//   refs.passInpEl.setAttribute('type', 'text');
+//   refs.hideBtnEl.textContent = 'Приховати';
+//   refs.hideBtnEl.removeEventListener('click', showPass);
+//   refs.hideBtnEl.addEventListener('click', hidePass);
+// }
 
 //TODO:==============================================
 /*
