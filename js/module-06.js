@@ -84,34 +84,30 @@
 Кнопка "Зменшити" робить квадрат менше на 10 пікселів, кнопка "Збільшити" - більше на 10 пікселів. Використай інструкцію switch
 */
 
-// <div>
-//   <p class="taskTitle">ЗАДАЧА 4</p>
-//   <button id="decrease">Зменшити</button>
-//   <button id="increase">Збільшити</button>
-//   <div id="box"></div>
-// </div>;
+// const refs = {
+//   // divEl: document.querySelector('div'),
+//   incrEl: document.querySelector('#increase'),
+//   decrEl: document.querySelector('#decrease'),
+//   boxEl: document.querySelector('#box'),
+// };
+// // refs.divEl.addEventListener('click', doSomething);
+// refs.incrEl.addEventListener('click', doSomething);
+// refs.decrEl.addEventListener('click', doSomething);
+// function doSomething(event) {
+//   const origWidth = refs.boxEl.offsetWidth;
+//   const origHeight = refs.boxEl.offsetHeight;
+//   switch (event.target.getAttribute('id')) {
+//     case 'increase':
+//       refs.boxEl.style.width = origWidth + 10 + 'px';
+//       refs.boxEl.style.height = origHeight + 10 + 'px';
+//       break;
+//     case 'decrease':
+//       refs.boxEl.style.width = origWidth - 10 + 'px';
+//       refs.boxEl.style.height = origHeight - 10 + 'px';
+//       break;
+//   }
+// }
 
-const refs = {
-  divEl: document.querySelector('div'),
-  incrEl: document.querySelector('#increase'),
-  decrEl: document.querySelector('#decrease'),
-  boxEl: document.querySelector('#box'),
-};
-refs.divEl.addEventListener('click', doSomething);
-function doSomething(event) {
-  const origWidth = refs.boxEl.offsetWidth;
-  const origHeight = refs.boxEl.offsetHeight;
-  switch (event.target.getAttribute('id')) {
-    case 'increase':
-      refs.boxEl.style.width = origWidth + 10 + 'px';
-      refs.boxEl.style.height = origHeight + 10 + 'px';
-      break;
-    case 'decrease':
-      refs.boxEl.style.width = origWidth - 10 + 'px';
-      refs.boxEl.style.height = origHeight - 10 + 'px';
-      break;
-  }
-}
 //TODO:==============================================
 /*
 Завдання 5
@@ -123,12 +119,47 @@ function doSomething(event) {
 https://developer.mozilla.org/en-US/docs/Web/API/Node/contains
 */
 
+// <div>
+//   <p class="taskTitle">ЗАДАЧА 5</p>
+//   <div id="place"></div>
+// </div>;
+// const placeEl = document.querySelector('#place');
+// document.addEventListener('click', findWhere);
+// function findWhere(ev) {
+//   const node = ev.target;
+//   console.log(node);
+//   if (placeEl.contains(placeEl)) {
+//     console.log('Клік відбувся всередині елемента з id "place".');
+//   } else {
+//     console.log('Клік відбувся поза зоною елемента js.');
+//   }
+// const node = ev.target.id;
+// if (node === placeEl.id) {
+//   console.log('Клік відбувся всередині елемента з id "place".');
+// } else {
+//   console.log('Клік відбувся поза зоною елемента js.');
+// }
+// }
+
+// function isInPage(node) {
+//   return node === document.body ? false : document.placeEl.contains(node);
+// }
+
 //TODO:==============================================
 /*
 Завдання 6
 Натиснувши кнопку "Подвоювати", збільшити значення
 у кожному елементі списку у 2 рази
 */
+
+// const doubleBtnEl = document.querySelector('#double');
+// doubleBtnEl.addEventListener('click', doubleFn);
+// const liEl = document.querySelectorAll('.listItem');
+// function doubleFn() {
+//   const temp = [];
+//   liEl.forEach(element => temp.push((element.textContent *= 2)));
+//   console.log(temp);
+// }
 
 //TODO:==============================================
 /*
@@ -139,6 +170,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/MouseEvent
 https://developer.mozilla.org/ru/docs/Web/API/MouseEvent/pageX
 https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 */
+
+//  <div>
+//    <p class="taskTitle">ЗАДАЧА 7</p>
+//    <div class="outerCircle">
+//      <div class="innerCircle"></div>
+//    </div>
+//  </div>;
 
 //TODO:==============================================
 /*
