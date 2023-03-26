@@ -39,31 +39,32 @@
 і кнопка набуває початкового вигляду.
 */
 
-/* <div>
-  <p class="taskTitle">ЗАДАЧА 3</p>
-  <input id="passwordInput" type="text" />
-  <button id="passwordButton">Приховати</button>
-</div>; */
-const refs = {
-  passInpEl: document.querySelector('#passwordInput'),
-  hideBtnEl: document.querySelector('#passwordButton'),
-};
-refs.hideBtnEl.addEventListener('click', hidePass);
-function hidePass() {
-  const type = refs.passInpEl.getAttribute('type');
-  console.log(type);
-  const whatAType = type === 'password' ? 'text' : 'password';
-  refs.passInpEl.setAttribute('type', whatAType);
-  const nameBtn = whatAType === 'password' ? 'Розкрити' : 'Показати';
-  refs.hideBtnEl.textContent = nameBtn;
-  // if (type === 'password') {
-  //   refs.passInpEl.setAttribute('type', 'text');
-  //   refs.hideBtnEl.textContent = 'Приховати';
-  // } else {
-  //   refs.passInpEl.setAttribute('type', 'password');
-  //   refs.hideBtnEl.textContent = 'Розкрити';
-  // }
-}
+// const refs = {
+//   passInpEl: document.querySelector('#passwordInput'),
+//   hideBtnEl: document.querySelector('#passwordButton'),
+// };
+// refs.hideBtnEl.addEventListener('click', hidePass);
+// function hidePass() {
+//   // 3 short variant
+//   const type = refs.passInpEl.getAttribute('type') === 'password' ? 'text' : 'password';
+//   refs.passInpEl.setAttribute('type', type);
+//   refs.hideBtnEl.textContent = type === 'password' ? 'Розкрити' : 'Показати';
+// 2 variant
+// const type = refs.passInpEl.getAttribute('type');
+// const whatAType = type === 'password' ? 'text' : 'password';
+// refs.passInpEl.setAttribute('type', whatAType);
+// const nameBtn = whatAType === 'password' ? 'Розкрити' : 'Показати';
+// refs.hideBtnEl.textContent = nameBtn;
+
+// 1 variant
+// if (type === 'password') {
+//   refs.passInpEl.setAttribute('type', 'text');
+//   refs.hideBtnEl.textContent = 'Приховати';
+// } else {
+//   refs.passInpEl.setAttribute('type', 'password');
+//   refs.hideBtnEl.textContent = 'Розкрити';
+// }
+// }
 // function hidePass() {
 //   refs.passInpEl.setAttribute('type', 'password');
 //   refs.hideBtnEl.textContent = 'Розкрити';
@@ -83,6 +84,35 @@ function hidePass() {
 Кнопка "Зменшити" робить квадрат менше на 10 пікселів, кнопка "Збільшити" - більше на 10 пікселів. Використай інструкцію switch
 */
 
+// <div>
+//   <p class="taskTitle">ЗАДАЧА 4</p>
+//   <button id="decrease">Зменшити</button>
+//   <button id="increase">Збільшити</button>
+//   <div id="box"></div>
+// </div>;
+
+const refs = {
+  divEl: document.querySelector('div'),
+  incrEl: document.querySelector('#increase'),
+  decrEl: document.querySelector('#decrease'),
+  boxEl: document.querySelector('#box'),
+};
+refs.divEl.addEventListener('click', doSomething);
+function doSomething(event) {
+  const origWidth = refs.boxEl.offsetwidth;
+  const origHeight = refs.boxEl.offsetheight;
+  console.log(origWidth);
+  switch (event.target.getAttribute('id')) {
+    case 'increase':
+      refs.boxEl.style.width = origWidth + 10 + 'px';
+      refs.boxEl.style.height = origHeight + 10 + 'px';
+      break;
+    case 'decrease':
+      refs.boxEl.style.width = origWidth - 10 + 'px';
+      refs.boxEl.style.height = origHeight - 1 + 'px';
+      break;
+  }
+}
 //TODO:==============================================
 /*
 Завдання 5
