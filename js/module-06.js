@@ -4,12 +4,33 @@
 При натисканні на кнопку "SHOW ME" в консоль має виводити значення з поля введення (дивіться на елементи в html-розмітці)
 */
 
+// const buttonEl = document.querySelector('#alertButton');
+// const inputEl = document.querySelector('#alertInput');
+
+// buttonEl.addEventListener('click', () => console.log(inputEl.value));
+
 //TODO:==============================================
 /*
 Завдання 2
 Після натискання кнопки "SWAP ME" здійснюється обмін вмістом між двома інпутами.
 Ви можете натиснути на неї кілька разів або вручну змінити вміст інпутів.
 */
+// const refs = {
+//   swapButton: document.querySelector('#swapButton'),
+//   leftSwapInput: document.querySelector('#leftSwapInput'),
+//   rightSwapInput: document.querySelector('#rightSwapInput'),
+// };
+// refs.swapButton.addEventListener('click', () => {
+//   const leftInput = refs.leftSwapInput.value;
+//   const rightInput = refs.rightSwapInput.value;
+
+//   if (leftInput === rightInput) {
+//     console.log('Exit');
+//   }
+
+//   refs.leftSwapInput.value = rightInput;
+//   refs.rightSwapInput.value = leftInput;
+// });
 
 //TODO:==============================================
 /*
@@ -18,12 +39,55 @@
 "Розкрити", при повторному натисканні текст знову стає доступним
 і кнопка набуває початкового вигляду.
 */
+// const refs = {
+//   passwordInput: document.querySelector('#passwordInput'),
+//   passwordButton: document.querySelector('#passwordButton'),
+// };
+// refs.passwordButton.addEventListener('click', onPasswordButtonClick);
 
+// function onPasswordButtonClick() {
+//   const inputType = refs.passwordInput.getAttribute('type');
+
+//   if (inputType === 'text') {
+//     refs.passwordInput.setAttribute('type', 'password');
+//     refs.passwordButton.textContent = 'Розкрити';
+//   } else {
+//     refs.passwordInput.setAttribute('type', 'text');
+//     refs.passwordButton.textContent = 'Приховати';
+//   }
+// }
 //TODO:==============================================
 /*
 Завдання 4
 Кнопка "Зменшити" робить квадрат менше на 10 пікселів, кнопка "Збільшити" - більше на 10 пікселів. Використай інструкцію switch
 */
+
+// const refs = {
+//   decreaseBtn: document.querySelector('#decrease'),
+//   increaseBtn: document.querySelector('#increase'),
+//   box: document.querySelector('#box'),
+// };
+
+// refs.decreaseBtn.addEventListener('click', onBtnClick);
+// refs.increaseBtn.addEventListener('click', onBtnClick);
+
+// function onBtnClick(event) {
+//   const boxWidth = refs.box.offsetWidth;
+//   const boxHeight = refs.box.offsetHeight;
+//   const btnType = event.target.getAttribute('id');
+
+//   switch (btnType) {
+//     case 'decrease':
+//       refs.box.style.width = boxWidth - 10 + 'px';
+//       refs.box.style.height = boxHeight - 10 + 'px';
+//       break;
+
+//     case 'increase':
+//       refs.box.style.width = boxWidth + 10 + 'px';
+//       refs.box.style.height = boxHeight + 10 + 'px';
+//       break;
+//   }
+// }
 
 //TODO:==============================================
 /*
@@ -35,6 +99,33 @@
 2. "Клік відбувся поза зоною елемента js."
 https://developer.mozilla.org/en-US/docs/Web/API/Node/contains
 */
+const place = document.querySelector('#place');
+// window.addEventListener('click', onPageClick);
+
+// function onPageClick(event) {
+//   const checkIdEl = event.target.getAttribute('id');
+//   console.log(checkIdEl);
+//   if (!checkIdEl) {
+//     console.log('Клік відбувся поза зоною елемента js.');
+//     return;
+//   }
+//   console.log('Клік відбувся всередині елемента з id "place".');
+// }
+
+window.addEventListener('click', isInPage);
+
+function isInPage(event) {
+  const body = document.body;
+  const div = body.firstElementChild;
+
+  return event.target !== div.lastElementChild
+    ? console.log('Клік відбувся поза зоною елемента js.')
+    : console.log('Клік відбувся всередині елемента з id "place".');
+}
+
+// function isInPage(node) {
+//   return node === document.body ? false : document.body.contains(node);
+// }
 
 //TODO:==============================================
 /*
