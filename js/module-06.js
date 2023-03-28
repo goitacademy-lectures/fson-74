@@ -128,21 +128,18 @@ https://developer.mozilla.org/en-US/docs/Web/API/Node/contains
 // function findWhere(ev) {
 //   const node = ev.target;
 //   console.log(node);
-//   if (placeEl.contains(placeEl)) {
+//   if (placeEl.contains(ev.target)) {
 //     console.log('Клік відбувся всередині елемента з id "place".');
 //   } else {
 //     console.log('Клік відбувся поза зоною елемента js.');
 //   }
-// const node = ev.target.id;
-// if (node === placeEl.id) {
-//   console.log('Клік відбувся всередині елемента з id "place".');
-// } else {
-//   console.log('Клік відбувся поза зоною елемента js.');
-// }
-// }
-
-// function isInPage(node) {
-//   return node === document.body ? false : document.placeEl.contains(node);
+//   // const node = ev.target.id;
+//   // if (node === placeEl.id) {
+//   //   console.log('Клік відбувся всередині елемента з id "place".');
+//   // } else {
+//   //   console.log('Клік відбувся поза зоною елемента js.');
+//   // }
+//   // }
 // }
 
 //TODO:==============================================
@@ -185,6 +182,27 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 За натисканням на кнопку "Вивести результат" виводиться сума значення, а також статистика з
 інформацією про те, яка кнопка була натиснута скільки разів.
 */
+
+// const refsStatList = {
+//   statDivEl: document.querySelector('.statList'),
+//   btnArrEl: document.querySelectorAll('.calcButton'),
+//   resultBtnEl: document.querySelector('#resultButton'),
+//   resultSectionEl: document.querySelector('#resultSection'),
+//   countBtnClick: 0,
+//   result: 0,
+// };
+
+// refsStatList.statDivEl.addEventListener('click', summDataSet);
+// function summDataSet(event) {
+//   if (event.target.classList.contains('calcButton')) {
+//     refsStatList.countBtnClick += 1;
+//     refsStatList.btnArrEl.forEach(el => (refsStatList.result += Number(el.dataset.number)));
+//   }
+// }
+// refsStatList.resultBtnEl.addEventListener('click', showResult);
+// function showResult() {
+//   refsStatList.resultSectionEl.textContent = `Summ of data = ${refsStatList.result}. Statistic of press button: ${refsStatList.countBtnClick}`;
+// }
 
 //TODO:==============================================
 /*
