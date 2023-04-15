@@ -210,6 +210,18 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 Видалити зі списку елементи, які позначені.
 */
 
+// const filterBtnEl = document.querySelector('.checkboxForm button');
+// const checkBoxById = document.querySelectorAll('.checkboxList input');
+// filterBtnEl.addEventListener('click', deleteChecked);
+// function deleteChecked(ev) {
+//   ev.preventDefault();
+//   checkBoxById.forEach(el => {
+//     if (el.checked) {
+//       el.parentNode.remove();
+//     }
+//   });
+// }
+
 //TODO:==============================================
 /*
 Завдання 10
