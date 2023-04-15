@@ -227,6 +227,12 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 Завдання 10
 Наведено список людей. Зроби можливість сортування списку на ім'я та на прізвище.
 */
+const refs = {
+  liPersonEl: document.querySelectorAll('.person'),
+  nameBtn: document.getElementById('sortByNameButton'),
+  lastNameBtn: document.getElementById('sortByLastNameButton'),
+};
+console.log(Array.from(refs.liPersonEl).join(''));
 
 //TODO:==============================================
 /*
