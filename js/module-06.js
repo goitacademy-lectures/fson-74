@@ -229,10 +229,62 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 */
 const refs = {
   liPersonEl: document.querySelectorAll('.person'),
+  ulPeopleEl: document.querySelector('.people'),
+  tempArray: [],
   nameBtn: document.getElementById('sortByNameButton'),
   lastNameBtn: document.getElementById('sortByLastNameButton'),
+  tempObj: {},
+  firstName: [],
+  lastName: [],
 };
-console.log(Array.from(refs.liPersonEl).join(''));
+
+refs.nameBtn.addEventListener('click', beforeSortFirstName);
+function beforeSortFirstName() {
+  if (refs.tempArray.length === 0) {
+    refs.liPersonEl.forEach(element => {
+      refs.tempArray.push(element.textContent);
+    });
+  }
+  sortAscending(refs.tempArray);
+  return console.log('refs.tempArray is not empty');
+}
+function sortAscending(array) {
+  const tempArr = [...array].sort((a, b) => a.localeCompare(b));
+  renderSortList(tempArr);
+}
+function renderSortList(array) {
+  const markup = array
+    .map(element => {
+      return `<li class='person'>${element}</li>`;
+    })
+    .join('');
+  refs.ulPeopleEl.innerHTML = markup;
+}
+
+refs.lastNameBtn.addEventListener('click', beforeSortLastName);
+function beforeSortLastName() {
+  if (refs.firstName.length === 0 && refs.lastName.length === 0) {
+    refs.liPersonEl.forEach(element => {
+      const indx = element.textContent.indexOf(' ');
+      const lastName = element.textContent.slice(indx + 1, element.textContent.length);
+      const firstName = element.textContent.slice(0, indx);
+      refs.firstName.push(firstName);
+      refs.lastName.push(lastName);
+    });
+  }
+  const sortedByLast = [...refs.lastName].sort((a, b) => a.localeCompare(b));
+  const arrAllNames = [];
+  for (let i = 0; i < refs.lastName.length; i += 1) {
+    arrAllNames.push(refs.firstName[i] + ' ' + sortedByLast[i]);
+  }
+  renderByLastName(arrAllNames);
+  console.log(refs.liPersonEl.length);
+  return console.log('refs.firstName && refs.lastName is not empty');
+}
+function renderByLastName(array) {
+  const markup = array.map(element => `<li class='person'>${element}</li>`).join('');
+  refs.ulPeopleEl.innerHTML = markup;
+}
 
 //TODO:==============================================
 /*
