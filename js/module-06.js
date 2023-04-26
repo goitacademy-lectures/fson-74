@@ -245,12 +245,8 @@ function beforeSortFirstName() {
       refs.tempArray.push(element.textContent);
     });
   }
-  sortAscending(refs.tempArray);
-  return console.log('refs.tempArray is not empty');
-}
-function sortAscending(array) {
-  const tempArr = [...array].sort((a, b) => a.localeCompare(b));
-  renderSortList(tempArr);
+  const sortedByFirstName = [...refs.tempArray].sort((a, b) => a.localeCompare(b));
+  renderSortList(sortedByFirstName);
 }
 function renderSortList(array) {
   const markup = array
@@ -264,26 +260,51 @@ function renderSortList(array) {
 refs.lastNameBtn.addEventListener('click', beforeSortLastName);
 function beforeSortLastName() {
   if (refs.firstName.length === 0 && refs.lastName.length === 0) {
-    refs.liPersonEl.forEach(element => {
-      const indx = element.textContent.indexOf(' ');
-      const lastName = element.textContent.slice(indx + 1, element.textContent.length);
-      const firstName = element.textContent.slice(0, indx);
-      refs.firstName.push(firstName);
-      refs.lastName.push(lastName);
-    });
+    createFirstAndLastNameArrays();
   }
-  const sortedByLast = [...refs.lastName].sort((a, b) => a.localeCompare(b));
-  const arrAllNames = [];
+  const arrReverseNames = [];
   for (let i = 0; i < refs.lastName.length; i += 1) {
-    arrAllNames.push(refs.firstName[i] + ' ' + sortedByLast[i]);
+    arrReverseNames.push(refs.lastName[i] + ' ' + refs.firstName[i]);
   }
-  renderByLastName(arrAllNames);
-  console.log(refs.liPersonEl.length);
+  const sortedByLast = [...arrReverseNames].sort((a, b) => a.localeCompare(b));
+  const resultArray = [];
+  for (let i = 0; i < sortedByLast.length; i += 1) {
+    console.log(sortedByLast.join(' '));
+    const str = sortedByLast[i].join(' ');
+    const indx = str.indexOf(' ');
+    const lastName = str.slice(0, indx);
+    const firstName = str.slice(indx + 1, str.length);
+    resultArray.push(firstName + lastName);
+  }
+  console.log(resultArray);
+
+  // for (let i = 0; i < sortedByLast.length; i += 1) {
+  //   const indx = element.textContent.indexOf(' ');
+  //   const lastName = element.textContent.slice(0, indx);
+  //   const firstName = element.textContent.slice(indx + 1, element.textContent.length);
+  //   refs.firstName.push(firstName);
+  //   refs.lastName.push(lastName);
+  // }
+
+  renderByLastName(resultArray);
+
   return console.log('refs.firstName && refs.lastName is not empty');
 }
 function renderByLastName(array) {
   const markup = array.map(element => `<li class='person'>${element}</li>`).join('');
   refs.ulPeopleEl.innerHTML = markup;
+}
+
+function createFirstAndLastNameArrays() {
+  refs.liPersonEl.forEach(element => {
+    const indx = element.textContent.indexOf(' ');
+    const firstName = element.textContent.slice(0, indx);
+    const lastName = element.textContent.slice(indx + 1, element.textContent.length);
+    refs.firstName.push(firstName);
+    refs.lastName.push(lastName);
+  });
+  console.log(refs.firstName);
+  console.log(refs.lastName);
 }
 
 //TODO:==============================================
