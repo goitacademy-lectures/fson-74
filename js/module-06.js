@@ -168,12 +168,30 @@ https://developer.mozilla.org/ru/docs/Web/API/MouseEvent/pageX
 https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 */
 
-//  <div>
-//    <p class="taskTitle">ЗАДАЧА 7</p>
-//    <div class="outerCircle">
-//      <div class="innerCircle"></div>
-//    </div>
-//  </div>;
+// const outerEl = document.querySelector('.outerCircle');
+// const innerEl = document.querySelector('.innerCircle');
+// const mouseEv = new MouseEvent('mousemove');
+// // const { x: elemX, y: elemY } = outerEl.getBoundingClientRect();
+// // console.log(outerEl.getBoundingClientRect());
+// function getPosMouse(event) {
+//   outerEl.style.left = `${event.pageX - 20}px`;
+//   outerEl.style.top = `${event.pageY - 20}px`;
+// }
+
+// outerEl.addEventListener('click', someFn);
+// function someFn(event) {
+//   outerEl.style.position = 'absolute';
+//   window.addEventListener('mousemove', getPosMouse);
+// }
+
+// outerEl.addEventListener('dblclick', returnPos);
+
+// function returnPos(event) {
+//   outerEl.style.position = 'static';
+//   window.removeEventListener('mousemove', getPosMouse);
+//   //   outerEl.style.left = elemX;
+//   //   outerEl.style.top = elemY;
+// }
 
 //TODO:==============================================
 /*
@@ -227,91 +245,103 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 Завдання 10
 Наведено список людей. Зроби можливість сортування списку на ім'я та на прізвище.
 */
-const refs = {
-  liPersonEl: document.querySelectorAll('.person'),
-  ulPeopleEl: document.querySelector('.people'),
-  tempArray: [],
-  nameBtn: document.getElementById('sortByNameButton'),
-  lastNameBtn: document.getElementById('sortByLastNameButton'),
-  tempObj: {},
-  firstName: [],
-  lastName: [],
-};
+// const refs = {
+//   liPersonEl: document.querySelectorAll('.person'),
+//   ulPeopleEl: document.querySelector('.people'),
+//   tempArray: [],
+//   firstNameBtn: document.getElementById('sortByNameButton'),
+//   lastNameBtn: document.getElementById('sortByLastNameButton'),
+//   firstName: [],
+//   lastName: [],
+// };
 
-refs.nameBtn.addEventListener('click', beforeSortFirstName);
-function beforeSortFirstName() {
-  if (refs.tempArray.length === 0) {
-    refs.liPersonEl.forEach(element => {
-      refs.tempArray.push(element.textContent);
-    });
-  }
-  const sortedByFirstName = [...refs.tempArray].sort((a, b) => a.localeCompare(b));
-  renderSortList(sortedByFirstName);
-}
-function renderSortList(array) {
-  const markup = array
-    .map(element => {
-      return `<li class='person'>${element}</li>`;
-    })
-    .join('');
-  refs.ulPeopleEl.innerHTML = markup;
-}
+// refs.firstNameBtn.addEventListener('click', beforeSortFirstName);
+// function beforeSortFirstName() {
+//   if (refs.tempArray.length === 0) {
+//     refs.liPersonEl.forEach(element => {
+//       refs.tempArray.push(element.textContent);
+//     });
+//   }
+//   const sortedByFirstName = [...refs.tempArray].sort((a, b) => a.localeCompare(b));
+//   renderSortList(sortedByFirstName);
+// }
+// function renderSortList(array) {
+//   const markup = array
+//     .map(element => {
+//       return `<li class='person'>${element}</li>`;
+//     })
+//     .join('');
+//   refs.ulPeopleEl.innerHTML = markup;
+// }
 
-refs.lastNameBtn.addEventListener('click', beforeSortLastName);
-function beforeSortLastName() {
-  if (refs.firstName.length === 0 && refs.lastName.length === 0) {
-    createFirstAndLastNameArrays();
-  }
-  const arrReverseNames = [];
-  for (let i = 0; i < refs.lastName.length; i += 1) {
-    arrReverseNames.push(refs.lastName[i] + ' ' + refs.firstName[i]);
-  }
-  const sortedByLast = [...arrReverseNames].sort((a, b) => a.localeCompare(b));
-  const resultArray = [];
-  for (let i = 0; i < sortedByLast.length; i += 1) {
-    console.log(sortedByLast.join(' '));
-    const str = sortedByLast[i].join(' ');
-    const indx = str.indexOf(' ');
-    const lastName = str.slice(0, indx);
-    const firstName = str.slice(indx + 1, str.length);
-    resultArray.push(firstName + lastName);
-  }
-  console.log(resultArray);
+// refs.lastNameBtn.addEventListener('click', beforeSortLastName);
 
-  // for (let i = 0; i < sortedByLast.length; i += 1) {
-  //   const indx = element.textContent.indexOf(' ');
-  //   const lastName = element.textContent.slice(0, indx);
-  //   const firstName = element.textContent.slice(indx + 1, element.textContent.length);
-  //   refs.firstName.push(firstName);
-  //   refs.lastName.push(lastName);
-  // }
+// function beforeSortLastName() {
+//   if (refs.firstName.length === 0 && refs.lastName.length === 0) {
+//     createFirstAndLastNameArrays();
+//   }
+//   const arrReverseNames = [];
+//   for (let i = 0; i < refs.lastName.length; i += 1) {
+//     arrReverseNames.push(refs.lastName[i] + ' ' + refs.firstName[i]);
+//   }
 
-  renderByLastName(resultArray);
+//   const sortedByLast = [...arrReverseNames].sort((a, b) => a.localeCompare(b));
 
-  return console.log('refs.firstName && refs.lastName is not empty');
-}
-function renderByLastName(array) {
-  const markup = array.map(element => `<li class='person'>${element}</li>`).join('');
-  refs.ulPeopleEl.innerHTML = markup;
-}
+//   const resultArray = [];
+//   sortedByLast.map(element => {
+//     const indx = element.indexOf(' ');
+//     const firstName = element.slice(indx + 1, element.length);
+//     const lastName = element.slice(0, indx);
+//     resultArray.push(firstName + ' ' + lastName);
+//   });
 
-function createFirstAndLastNameArrays() {
-  refs.liPersonEl.forEach(element => {
-    const indx = element.textContent.indexOf(' ');
-    const firstName = element.textContent.slice(0, indx);
-    const lastName = element.textContent.slice(indx + 1, element.textContent.length);
-    refs.firstName.push(firstName);
-    refs.lastName.push(lastName);
-  });
-  console.log(refs.firstName);
-  console.log(refs.lastName);
-}
+//   renderSortList(resultArray);
+// }
+
+// function createFirstAndLastNameArrays() {
+//   refs.liPersonEl.forEach(element => {
+//     const indx = element.textContent.indexOf(' ');
+//     const firstName = element.textContent.slice(0, indx);
+//     const lastName = element.textContent.slice(indx + 1, element.textContent.length);
+//     refs.firstName.push(firstName);
+//     refs.lastName.push(lastName);
+//   });
+// }
 
 //TODO:==============================================
 /*
 Завдання 11
 Наведено список людей. Зроби фільтр на ім'я/прізвище.
 */
+
+// ---------- Але пошук працює тільки з урахуванням великої літери.
+
+// const refs = {
+//   inputEl: document.querySelector('.contactsFilter'),
+//   ulEl: document.querySelector('.contacts'),
+//   liElAll: document.querySelectorAll('.contact'),
+// };
+
+// refs.inputEl.addEventListener('input', findNameLastName);
+// function findNameLastName(event) {
+//   const whatToFind = event.currentTarget.value.trim();
+//   const tempArr = [];
+//   refs.liElAll.forEach(element => {
+//     if (element.textContent.includes(whatToFind)) {
+//       tempArr.push(element.textContent);
+//     }
+//   });
+//   renderList(tempArr);
+// }
+
+// function renderList(item) {
+//   const markup = item
+//     .map(el => {
+//       return `<li class='contact'>${el}</li>`;
+//     })
+//     .join('');
+//   refs.ulEl.innerHTML = markup;
+// }
 
 //TODO:==============================================
 /*
@@ -320,6 +350,20 @@ function createFirstAndLastNameArrays() {
 символ з другого поля введення в усьому тексті.
 Якщо одне з полів порожнє, викликай alert із проханням заповнити їх.
 */
+// const fromEl = document.getElementById('from');
+// const toEl = document.getElementById('to');
+// const replaceEl = document.getElementById('replaceButton');
+// const pEl = document.querySelector('.text');
+
+// replaceEl.addEventListener('click', replaceLetter);
+
+// function replaceLetter() {
+//   if (fromEl.value === '' || toEl.value === '') {
+//     alert('Please enter letter');
+//     return;
+//   }
+//   pEl.textContent = pEl.textContent.replaceAll(fromEl.value, toEl.value);
+// }
 
 //TODO:==============================================
 /*
@@ -327,6 +371,13 @@ function createFirstAndLastNameArrays() {
 Коло має зникати при наведенні на нього.
 При цьому позиція сусідніх кіл має залишатися незмінною.
 */
+const gridEl = document.querySelector('.grid');
+const gridItemAll = document.querySelectorAll('.gridItem');
+console.log(gridItemAll);
+gridItemAll.forEach(el => el.addEventListener('mouseon', hideCircle));
+function hideCircle(event) {
+  console.log('myFn');
+}
 
 //TODO:==============================================
 /*
