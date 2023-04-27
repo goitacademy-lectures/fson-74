@@ -314,8 +314,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 Наведено список людей. Зроби фільтр на ім'я/прізвище.
 */
 
-// ---------- Але пошук працює тільки з урахуванням великої літери.
-
 // const refs = {
 //   inputEl: document.querySelector('.contactsFilter'),
 //   ulEl: document.querySelector('.contacts'),
@@ -327,7 +325,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 //   const whatToFind = event.currentTarget.value.trim();
 //   const tempArr = [];
 //   refs.liElAll.forEach(element => {
-//     if (element.textContent.includes(whatToFind)) {
+//     if (element.textContent.toLowerCase().includes(whatToFind)) {
 //       tempArr.push(element.textContent);
 //     }
 //   });
@@ -371,13 +369,19 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 Коло має зникати при наведенні на нього.
 При цьому позиція сусідніх кіл має залишатися незмінною.
 */
-const gridEl = document.querySelector('.grid');
-const gridItemAll = document.querySelectorAll('.gridItem');
-console.log(gridItemAll);
-gridItemAll.forEach(el => el.addEventListener('mouseon', hideCircle));
-function hideCircle(event) {
-  console.log('myFn');
-}
+// const gridEl = document.querySelector('.grid');
+// const gridItemAll = document.querySelectorAll('.gridItem');
+// gridItemAll.forEach(el => {
+//   console.log(el);
+//   el.addEventListener('mouseover', hideCircle);
+//   el.addEventListener('mouseout', showCircle);
+// });
+// function hideCircle(event) {
+//   event.currentTarget.style.opacity = 0;
+// }
+// function showCircle(event) {
+//   event.currentTarget.style.opacity = 1;
+// }
 
 //TODO:==============================================
 /*
@@ -386,10 +390,32 @@ function hideCircle(event) {
 Додати класи на список eventList, на елементи eventCode та eventKey
 */
 
+// const divThumbEl = document.querySelector('.eventThumb');
+// window.addEventListener('keypress', collectKeys);
+// const ulEl = document.createElement('ul');
+// ulEl.classList.add('eventList');
+// function collectKeys(event) {
+//   const key = event.key;
+//   const code = event.code;
+//   const markupLi = createMarkup(key, code);
+//   renderMarkup(markupLi);
+// }
+// function createMarkup(key, code) {
+//   const markup = `<li><span class="eventKey">Event.key = ${key},</span> <span class="eventCode">event.code = ${code}</span></li>`;
+//   return markup;
+// }
+// function renderMarkup(markupLi) {
+//   ulEl.insertAdjacentHTML('beforeend', markupLi);
+//   divThumbEl.classList.add('eventThumb');
+//   divThumbEl.appendChild(ulEl);
+// }
+
 //TODO:======================
 // Завдання 15
 // Взяти попереднє завдання з Зоопарком та вивести звірів, їх тип та особливості в DOM.
 // Додати до списку клас animalList.На елемент списку animalElement
+
+// Щось я не знайшов завдання з Зоопарком?..
 
 //TODO:======================
 // Завдання 16
@@ -399,9 +425,31 @@ function hideCircle(event) {
 //  При натисканні на будь - який рядок у табличці відобразіть
 //  повідомлення з назвою продукту та його ціною.
 
+// const tableEl = document.getElementById('productTable');
+// const detailsEl = document.getElementById('productDetails');
+// tableEl.addEventListener('click', showColumns);
+// function showColumns(event) {
+//   const content = event.target.parentElement.textContent;
+//   renderDetails(content);
+// }
+// function renderDetails(item) {
+//   detailsEl.innerHTML = item;
+// }
 //TODO:======================
 // Завдання 17
 // Створіть HTML сторінку з формою,
 // яка містить поле введення для введення
 // імені користувача та кнопку. При натисканні
 // на кнопку відобразіть повідомлення з привітанням з іменем користувача.
+const formEl = document.querySelector('form');
+const inputUser = document.getElementById('username');
+const greetBtn = document.getElementById('greetingButton');
+const greetMess = document.getElementById('greetingMessage');
+greetBtn.addEventListener('click', greet);
+formEl.addEventListener('submit', disSub);
+function greet(event) {
+  greetMess.innerHTML = `${inputUser.value.trim()} greeting to you`;
+}
+function disSub(event) {
+  event.preventDefault();
+}
