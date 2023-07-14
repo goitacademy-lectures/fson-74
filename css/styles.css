@@ -32,7 +32,7 @@
   overflow: hidden;
 }
 .page-link::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 0;
@@ -42,7 +42,7 @@
   height: 110%;
 
   background-color: rgba(255, 255, 255, 0.2);
-  transition: 300ms;
+  transition: 1000ms;
 }
 .page-link:hover::before {
   transform: translateY(-50%) translateX(-8%) skew(-20deg);
